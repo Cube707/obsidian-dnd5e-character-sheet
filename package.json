@@ -1,0 +1,27 @@
+{
+  "name": "obsidian-dnd5e-character-sheet",
+  "version": "0.0.1",
+  "description": "This repo contains the source-files used to create the files needed by obsidian, both CSS and JS.",
+  "scripts": {
+    "build": "concurrently \"npm run build-js\" \"npm run build-css\"",
+    "build-js": "ncc build --minify src/ts/startup-script.ts && cp dist/index.js exampleVault/dnd5e-character-sheet.js ",
+    "build-css": "sass --style=compressed --no-source-map src/sass/character-sheet.scss:exampleVault/.obsidian/snippets/dnd5e-character-sheet.css",
+    "watch-css": "sass --watch --no-source-map src/sass/character-sheet.scss:exampleVault/.obsidian/snippets/dnd5e-character-sheet.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cube707/obsidian-dnd5e-character-sheet.git"
+  },
+  "author": "Jan wille",
+  "license": "CC-BY-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/Cube707/obsidian-dnd5e-character-sheet/issues"
+  },
+  "homepage": "https://github.com/Cube707/obsidian-dnd5e-character-sheet#readme",
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.3",
+    "concurrently": "^9.1.2",
+    "sass": "^1.85.1",
+    "typescript": "^5.8.2"
+  }
+}
