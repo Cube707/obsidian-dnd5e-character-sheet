@@ -3,5 +3,5 @@ node_modules/
 
 # generated files
 dist/
-exampleVault/.obsidian/snippets/dnd5e-character-sheet.css
-exampleVault/dnd5e-character-sheet.js
+example*/.obsidian/snippets/dnd5e-character-sheet.css
+example*/dnd5e-character-sheet.js
