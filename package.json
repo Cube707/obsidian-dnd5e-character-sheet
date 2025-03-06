@@ -21,6 +21,8 @@
   "devDependencies": {
     "@vercel/ncc": "^0.38.3",
     "concurrently": "^9.1.2",
+    "obsidian": "^1.8.7",
+    "obsidian-meta-bind-plugin": "github:mProjectsCode/obsidian-meta-bind-plugin",
     "sass": "^1.85.1",
     "typescript": "^5.8.2"
   }
