@@ -11,3 +11,17 @@ declare global {
 }
 
 const mb: MetaBindAPI<MetaBindPlugin> = engine.getPlugin("obsidian-meta-bind-plugin").api;
+
+mb.mathJSimport(
+  {
+    // clamp a value between a min and max
+    clamp: (val: number, min: number, max: number) => Math.min(Math.max(min, val), max),
+
+    // display a number including its sign
+    sign: (num: number) => (num > 0 ? "+" : "") + String(num),
+
+    // calculate a modifier from an attribute:
+    calcmodifier: (attr: number) => Math.floor((attr - 10) / 2),
+  },
+  { silent: true, override: true }
+);
