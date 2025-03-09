@@ -5,3 +5,18 @@ body:has(.dnd5e-character-sheet) {
   --file-line-width: 60rem;
   /* --p-spacing: 0.25rem; */
 }
+
+.dnd5e-character-sheet {
+
+  @include meta.load-css("reset");
+  p:empty {
+    display: none;
+  }
+  .mb-view:has(.mb-view-hidden) {
+    display: none;
+  }
+  .mb-view-hidden {
+    display: none;
+  }
+
+}
