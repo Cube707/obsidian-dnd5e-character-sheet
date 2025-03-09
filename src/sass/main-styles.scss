@@ -34,7 +34,9 @@
     justify-content: space-around !important;
   }
 }
-ul.ability-scores {
+ul.ability-scores,
+ul.saving-scores,
+ul.senses-scores {
   @include reset.list;
 
   display: grid;
@@ -102,5 +104,56 @@ ul.ability-scores {
   }
   tr td:nth-of-type(3) {
     width: 100%;
+  }
+}
+
+ul.saving-scores {
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  justify-content: start;
+  gap: 0.5em 1em;
+  li {
+    width: 100%;
+    grid-template-columns: min-content auto min-content;
+    gap: 0.5em;
+    padding-inline-end: 0.5em;
+    border-radius: 100vw 0 0 100vw;
+    > *:has(.proficiency-selector) {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    > h5 {
+      grid-column: 2;
+      justify-self: start;
+    }
+  }
+}
+
+ul.senses-scores {
+  $left-offset: 1em;
+  grid-template-columns: auto;
+  justify-items: start;
+  gap: 1.25em;
+  margin-left: $left-offset;
+  li {
+    width: 100%;
+    position: relative;
+    padding-inline: 2.25em 1em;
+    border-radius: 0.5em;
+    justify-content: start;
+
+    *:has(.val) {
+      position: absolute;
+      text-align: center;
+      width: 3em;
+      aspect-ratio: 1;
+      left: (-1 * $left-offset);
+      border-radius: 50%;
+      border: 2px solid;
+      background-color: var(--background-primary);
+      display: grid;
+      place-items: center;
+    }
   }
 }

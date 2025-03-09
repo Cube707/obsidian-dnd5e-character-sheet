@@ -71,3 +71,35 @@ proficiencies:
 | `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.stealth]`         | DEX | Stealth         |     `VIEW[sign(floor({proficiencies.stealth}*{memory^PROF_mod})+{memory^DEX_mod})]`     |
 | `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.survival]`        | WIS | Survival        |    `VIEW[sign(floor({proficiencies.survival}*{memory^PROF_mod})+{memory^WIS_mod})]`     |
 { .proficiencies-table .float }
+
+#### Saving Throws
+
+- ##### Strength
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.STR_save]`
+  `VIEW[sign(floor({proficiencies.STR_save}*{memory^PROF_mod})+{memory^STR_mod})][math(class(val))]`
+- ##### Dexterity
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.DEX_save]`
+  `VIEW[sign(floor({proficiencies.DEX_save}*{memory^PROF_mod})+{memory^DEX_mod})][math(class(val))]`
+- ##### Constitution
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.CON_save]`
+  `VIEW[sign(floor({proficiencies.CON_save}*{memory^PROF_mod})+{memory^CON_mod})][math(class(val))]`
+- ##### Intelligence
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.INT_save]`
+  `VIEW[sign(floor({proficiencies.INT_save}*{memory^PROF_mod})+{memory^INT_mod})][math(class(val))]`
+- ##### Wisdom
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.WIS_save]`
+  `VIEW[sign(floor({proficiencies.WIS_save}*{memory^PROF_mod})+{memory^WIS_mod})][math(class(val))]`
+- ##### Charisma
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.CHR_save]`
+  `VIEW[sign(floor({proficiencies.CHR_save}*{memory^PROF_mod})+{memory^CHR_mod})][math(class(val))]`
+{ .saving-scores }
+
+#### Senses
+
+- ##### Passive Perception
+  `VIEW[10+{memory^WIS_mod}+floor({proficiencies.perception}*{memory^PROF_mod})][math(class(val))]`
+- ##### Passive Investigation
+  `VIEW[10+{memory^INT_mod}+floor({proficiencies.investigation}*{memory^PROF_mod})][math(class(val))]`
+- ##### Passive Insight
+  `VIEW[10+{memory^WIS_mod}+floor({proficiencies.insight}*{memory^PROF_mod})][math(class(val))]`
+{ .senses-scores }
