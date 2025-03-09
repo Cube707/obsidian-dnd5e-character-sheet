@@ -111,3 +111,34 @@ proficiencies:
 #### Immunities
 
 #### Vulnerabilities
+
+### Proficiency
+
+```meta-bind-js-view
+{LVL} as lvl
+save to {memory^PROF_mod}
+hidden
+---
+const lookup = { 1:2,2:2,3:2,4:2,5:3,6:3,7:3,8:3,9:4,10:4,
+                 11:4,12:4,13:5,15:5,16:5,17:7,18:6,19:6,20:6 };
+return lookup[context.bound.lvl];
+```
+- { .proficiency-bonus }
+  ##### Bonus
+  `VIEW[sign({memory^PROF_mod})][math(class(val))]`
+{ .proficiency-scores }
+
+#### Languages
+Common
+Thievescant
+
+#### Tools
+Calligrapher's Supplies
+Thieves' Tools
+Poisener's Kit
+
+#### Weapons
+Simple Weapons
+
+#### Amor
+None

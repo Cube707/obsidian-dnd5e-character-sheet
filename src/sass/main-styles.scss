@@ -36,7 +36,8 @@
 }
 ul.ability-scores,
 ul.saving-scores,
-ul.senses-scores {
+ul.senses-scores,
+ul.proficiency-scores {
   @include reset.list;
 
   display: grid;
@@ -155,5 +156,14 @@ ul.senses-scores {
       display: grid;
       place-items: center;
     }
+  }
+}
+
+ul.proficiency-scores {
+  padding-inline: 0 !important;
+  justify-items: start;
+  li:has(.proficiency-bonus) {
+    padding: 0 2em;
+    border-radius: 0.2em 2em / 0.2em 1em;
   }
 }
