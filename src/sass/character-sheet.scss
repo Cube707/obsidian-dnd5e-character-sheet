@@ -1,0 +1,7 @@
+@use "sass:meta";
+
+/* give the desktop view a little more vertical space */
+body:has(.dnd5e-character-sheet) {
+  --file-line-width: 60rem;
+  /* --p-spacing: 0.25rem; */
+}
