@@ -5,8 +5,8 @@
   "scripts": {
     "build": "concurrently \"npm run build-js\" \"npm run build-css\"",
     "build-js": "ncc build --minify src/ts/startup-script.ts && cp dist/index.js exampleCharacterVault/dnd5e-character-sheet.js ",
-    "build-css": "sass --style=compressed --no-source-map src/sass/character-sheet.scss:exampleCharacterVault/.obsidian/snippets/dnd5e-character-sheet.css",
-    "watch-css": "sass --watch --no-source-map src/sass/character-sheet.scss:exampleCharacterVault/.obsidian/snippets/dnd5e-character-sheet.css"
+    "build-css": "node assets/svg/encode-svgs.js && sass --style=compressed --no-source-map src/sass/character-sheet.scss:exampleCharacterVault/.obsidian/snippets/dnd5e-character-sheet.css",
+    "watch-css": "node assets/svg/encode-svgs.js && sass --watch --no-source-map src/sass/character-sheet.scss:exampleCharacterVault/.obsidian/snippets/dnd5e-character-sheet.css"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "devDependencies": {
     "@vercel/ncc": "^0.38.3",
     "concurrently": "^9.1.2",
+    "glob": "^11.0.1",
     "obsidian": "^1.8.7",
     "obsidian-meta-bind-plugin": "github:mProjectsCode/obsidian-meta-bind-plugin",
     "sass": "^1.85.1",

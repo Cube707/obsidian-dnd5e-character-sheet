@@ -1,4 +1,5 @@
 @use "sass:meta";
+@use "svgs";
 
 /* give the desktop view a little more vertical space */
 body:has(.dnd5e-character-sheet) {
@@ -12,6 +13,9 @@ body:has(.dnd5e-character-sheet) {
   p:empty {
     display: none;
   }
+  table {
+    width: 100%;
+  }
   .mb-view:has(.mb-view-hidden) {
     display: none;
   }
@@ -19,5 +23,44 @@ body:has(.dnd5e-character-sheet) {
     display: none;
   }
 
+  @include meta.load-css("util");
   @include meta.load-css("main-styles");
+
+  &.markdown-preview-view .mb-input-inline:has(.proficiency-selector) {
+    display: block !important;
+    padding: 0;
+
+    .proficiency-selector {
+      display: grid !important;
+      place-items: center;
+      select {
+        display: none;
+      }
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 1.5em;
+        aspect-ratio: 1;
+        mask-position: center;
+        mask-size: contain;
+        mask-repeat: no-repeat;
+      }
+    }
+    [data-internal-value="0"]::before {
+      background-color: var(--color-base-70);
+      mask-image: svgs.$proficienty_not-proficient;
+    }
+    [data-internal-value="0.5"]::before {
+      background-color: var(--color-base-70);
+      mask-image: url('data:image/svg+xml,<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="24.881" fill="none" stroke="%23000" stroke-width="7.5"/><path d="m64.977 31.92-33.057 33.057c-9.3035-11.131-8.8442-22.129 0.04565-33.011 10.809-8.7803 21.798-9.4558 33.011-0.04565z"/></svg>');
+    }
+    [data-internal-value="1"]::before {
+      background-color: var(--color-accent);
+      mask-image: url('data:image/svg+xml,<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="24.881" stroke="%23000" stroke-width="7.5"/></svg>');
+    }
+    [data-internal-value="2"]::before {
+      background-color: var(--color-accent);
+      mask-image: url('data:image/svg+xml,<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="24.881"/><circle cx="50" cy="50" r="39.895" fill="none" stroke="%23000" stroke-width="7.5"/></svg>');
+    }
+  }
 }

@@ -1,0 +1,12 @@
+@use "var";
+
+[class^="el-"]:has(.float) {
+  @media (width > (var.$mobile-breakpoint * 1.2)) {
+    float: right;
+    margin: 0 0 1.5em 2em;
+    width: 45%;
+    max-width: calc(var(--file-line-width) / 2);
+    position: relative;
+    z-index: 10;
+  }
+}

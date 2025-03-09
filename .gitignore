@@ -5,6 +5,7 @@ node_modules/
 dist/
 example*/.obsidian/snippets/dnd5e-character-sheet.css
 example*/dnd5e-character-sheet.js
+src/sass/_svgs.scss
 
 
 # Example Vault
