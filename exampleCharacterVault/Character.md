@@ -103,3 +103,11 @@ proficiencies:
 - ##### Passive Insight
   `VIEW[10+{memory^WIS_mod}+floor({proficiencies.insight}*{memory^PROF_mod})][math(class(val))]`
 { .senses-scores }
+
+### Defenses
+
+#### Resistances
+
+#### Immunities
+
+#### Vulnerabilities
