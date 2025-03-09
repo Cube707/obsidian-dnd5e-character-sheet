@@ -8,6 +8,7 @@ CON: 15
 INT: 14
 WIS: 10
 CHR: 12
+speed: 30
 proficiencies:
   intimidation: 0.5
   acrobatics: 1
@@ -142,3 +143,16 @@ Simple Weapons
 
 #### Amor
 None
+
+## Combat
+
+- { .amour-class }
+  ##### AC
+  `VIEW[10+{memory^DEX_mod}][math(class(val))]`
+- { .initiative }
+  ##### Initiative
+  `VIEW[sign({memory^DEX_mod})][math(class(val))]`
+- { .speed }
+  ##### Speed
+  `VIEW[{speed}][math(class(val))]` _ft._
+{ .combat-scores }

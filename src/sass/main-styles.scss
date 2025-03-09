@@ -37,7 +37,8 @@
 ul.ability-scores,
 ul.saving-scores,
 ul.senses-scores,
-ul.proficiency-scores {
+ul.proficiency-scores,
+ul.combat-scores {
   @include reset.list;
 
   display: grid;
@@ -165,5 +166,44 @@ ul.proficiency-scores {
   li:has(.proficiency-bonus) {
     padding: 0 2em;
     border-radius: 0.2em 2em / 0.2em 1em;
+  }
+}
+
+ul.combat-scores {
+  align-items: center;
+  li:has(.amour-class) {
+    width: 5.5em;
+    aspect-ratio: 1;
+    border-radius: 50% 50% 50% 50% / 15% 15% 85% 85%;
+  }
+  li:has(.initiative) {
+    margin-left: -1em;
+    position: relative;
+    padding-inline: 1em;
+    border: unset;
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 2px solid;
+      transform: skewX(-15deg);
+    }
+    h5 {
+      translate: 0.25em;
+    }
+    .mb-view {
+      translate: -0.25em;
+    }
+  }
+  li:has(.speed) {
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    gap: 0 0.25em;
+    padding-inline: 2em;
+    border-radius: 2em;
+    h5 {
+      margin-top: -0.2em;
+      grid-column: span 3;
+    }
   }
 }
