@@ -1,0 +1,29 @@
+@use "var";
+@use "reset";
+
+[data-callout~="charater-details"] {
+  @include reset.callout;
+
+  .callout-content {
+    display: grid;
+    grid-template-columns: auto minmax(auto, 7rem);
+    gap: 0.1em 1em;
+  }
+
+  h1,
+  h3,
+  h4 {
+    margin: 0;
+    grid-column: 1;
+    white-space: nowrap;
+  }
+
+  p:has(.image-embed) {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+  }
+
+  p:not(:has(.image-embed)) {
+    grid-column: span 2;
+  }
+}

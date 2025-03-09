@@ -19,4 +19,5 @@ body:has(.dnd5e-character-sheet) {
     display: none;
   }
 
+  @include meta.load-css("main-styles");
 }
