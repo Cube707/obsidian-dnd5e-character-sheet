@@ -21,6 +21,11 @@ body:has(.dnd5e-character-sheet) {
   .mb-view-hidden {
     display: none;
   }
+  .el-h1,
+  .el-h2,
+  .el-h3 {
+    clear: both;
+  }
 
   @include meta.load-css("util");
   @include meta.load-css("main-styles");
