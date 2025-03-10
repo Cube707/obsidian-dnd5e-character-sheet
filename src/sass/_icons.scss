@@ -40,8 +40,24 @@
   width: 3em;
 }
 
-/* ----- the icons ----- */
 /* template */
 .icon-template::before {
   mask-image: unset;
+}
+
+/* ----- movement types ----- */
+.icon-burrowing::before {
+  mask-image: svgs.$movement_burrowing;
+}
+.icon-climbing::before {
+  mask-image: svgs.$movement_climbing;
+}
+.icon-flying::before {
+  mask-image: svgs.$movement_flying;
+}
+.icon-swimming::before {
+  mask-image: svgs.$movement_swimming;
+}
+.icon-walking::before {
+  mask-image: svgs.$movement_walking;
 }

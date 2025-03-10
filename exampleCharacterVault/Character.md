@@ -8,7 +8,9 @@ CON: 15
 INT: 14
 WIS: 10
 CHR: 12
-speed: 30
+speed:
+  walking: 30
+  climbing: 15
 proficiencies:
   intimidation: 0.5
   acrobatics: 1
@@ -154,5 +156,6 @@ None
   `VIEW[sign({memory^DEX_mod})][math(class(val))]`
 - { .speed }
   ##### Speed
-  `VIEW[{speed}][math(class(val))]` _ft._
+  _w{ .icon-walking .size-m }_ `VIEW[{speed.walking}][math(class(val))]` _ft._
+  _c{ .icon-climbing .size-m }_ `VIEW[{speed.climbing}][math(class(val))]` _ft._
 { .combat-scores }
