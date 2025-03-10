@@ -63,4 +63,6 @@ body:has(.dnd5e-character-sheet) {
       mask-image: url('data:image/svg+xml,<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="24.881"/><circle cx="50" cy="50" r="39.895" fill="none" stroke="%23000" stroke-width="7.5"/></svg>');
     }
   }
+
+  @include meta.load-css("icons");
 }

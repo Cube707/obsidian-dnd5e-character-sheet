@@ -1,0 +1,3 @@
+[submodule "assets/svg/tw-dnd"]
+	path = assets/svg/tw-dnd
+	url = https://github.com/intrinsical/tw-dnd.git

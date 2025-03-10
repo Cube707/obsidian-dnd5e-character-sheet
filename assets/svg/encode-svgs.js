@@ -3,15 +3,18 @@ const fs = require("fs");
 const { glob } = require("glob");
 
 function encodeSVG(svg) {
-  return "data:image/svg+xml," + svg
-    .replace(/%/g, "%25") // Encode %
-    .replace(/#/g, "%23") // Encode #
-    .replace(/{/g, "%7B") // Encode {
-    .replace(/}/g, "%7D") // Encode }
-    // .replace(/</g, "%3C") // Encode <
-    // .replace(/>/g, "%3E") // Encode >
-    .replace(/\n/g, "")    // remove newlines
-    .replace(/\s+/g, " "); // Minify spaces
+  return (
+    "data:image/svg+xml," +
+    svg
+      .replace(/%/g, "%25") // Encode %
+      .replace(/#/g, "%23") // Encode #
+      .replace(/{/g, "%7B") // Encode {
+      .replace(/}/g, "%7D") // Encode }
+      // .replace(/</g, "%3C") // Encode <
+      // .replace(/>/g, "%3E") // Encode >
+      .replace(/\n/g, "") // remove newlines
+      .replace(/\s+/g, " ") // Minify spaces
+  );
 }
 
 async function main() {
@@ -23,9 +26,14 @@ async function main() {
     fs.unlinkSync(outputScssFile);
   }
 
-  let svg_files = await glob("./*.svg");
+  let svg_files = await glob(["./*.svg", "tw-dnd/icons/**/*.svg"], {
+    posix: true,
+  });
   for (const file of svg_files) {
-    let var_name = file.replace(".svg", "").replace("/", "_");
+    let var_name = file
+      .replace("tw-dnd/icons/", "")
+      .replace(".svg", "")
+      .replace("/", "_");
     fs.readFile(file, "utf8", (err, data) => {
       if (err) throw err;
       const encodedSVG = encodeSVG(data);
