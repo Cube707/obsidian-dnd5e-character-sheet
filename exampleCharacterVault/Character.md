@@ -107,14 +107,6 @@ proficiencies:
   `VIEW[10+{memory^WIS_mod}+floor({proficiencies.insight}*{memory^PROF_mod})][math(class(val))]`
 { .senses-scores }
 
-### Defenses
-
-#### Resistances
-
-#### Immunities
-
-#### Vulnerabilities
-
 ### Proficiency
 
 ```meta-bind-js-view
@@ -133,7 +125,7 @@ return lookup[context.bound.lvl];
 
 #### Languages
 Common
-Thievescant
+Thieves’ Cant
 
 #### Tools
 Calligrapher's Supplies
@@ -141,9 +133,21 @@ Thieves' Tools
 Poisener's Kit
 
 #### Weapons
-Simple Weapons
+Crossbow, Hand, Longsword, Rapier, Shortsword, Simple Weapons
 
 #### Amor
+Light Armor
+
+### Defenses
+
+#### Resistances
+_A{.icon-advantage}_ CON saves against the poisoned condition
+_p{.icon-poison}_ poison damage
+
+#### Immunities
+None
+
+#### Vulnerabilities
 None
 
 ## Combat

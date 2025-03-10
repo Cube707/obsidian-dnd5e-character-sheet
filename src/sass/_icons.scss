@@ -46,6 +46,16 @@
   mask-image: unset;
 }
 
+/* ----- dice icons ----- */
+.icon-advantage::before {
+  background-color: var(--color-green) !important;
+  mask-image: svgs.$tw_dice_advantage;
+}
+.icon-disadvantage::before {
+  background-color: var(--color-red) !important;
+  mask-image: svgs.$tw_dice_disadvantage;
+}
+
 /* ----- combat ----- */
 .icon-melee::before {
   mask-image: svgs.$tw_combat_melee;
