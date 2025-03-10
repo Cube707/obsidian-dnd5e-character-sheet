@@ -207,3 +207,27 @@ ul.combat-scores {
     }
   }
 }
+
+.actions-in-combat {
+  @media (width < var.$mobile-breakpoint) {
+    max-width: 50ch;
+  }
+  th {
+    width: min-content;
+    &:nth-child(2) {
+      width: 100%;
+    }
+  }
+  td {
+    vertical-align: middle;
+
+    strong {
+      color: var(--color-accent);
+    }
+  }
+}
+
+.action {
+  font-weight: bold;
+  color: var(--color-accent) !important;
+}

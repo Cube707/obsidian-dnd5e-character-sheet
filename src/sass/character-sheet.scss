@@ -8,7 +8,6 @@ body:has(.dnd5e-character-sheet) {
 }
 
 .dnd5e-character-sheet {
-
   @include meta.load-css("reset");
   p:empty {
     display: none;

@@ -159,3 +159,64 @@ None
   _w{ .icon-walking .size-m }_ `VIEW[{speed.walking}][math(class(val))]` _ft._
   _c{ .icon-climbing .size-m }_ `VIEW[{speed.climbing}][math(class(val))]` _ft._
 { .combat-scores }
+
+### Actions
+
+|                              | Info                                                    |                       Hit/DC                       |                                    Damage                                    |
+| :--------------------------: | :------------------------------------------------------ | :------------------------------------------------: | :--------------------------------------------------------------------------: |
+| _M{ .icon-melee .size-xl }_  | **Wip**<br>_Meele Attack_<br>10 _ft._                   | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` | `1d4`&hairsp;`VIEW[sign({memory^DEX_mod})]`<br>_s{ .icon-slashing }_<br>Slow |
+| _M{ .icon-melee .size-xl }_  | **Dagger of Venom**<br>_Meele Attack_<br>5 _ft._        | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` |     `1d4`&hairsp;`VIEW[sign({memory^DEX_mod})]`<br>_p{ .icon-piercing }_     |
+|                              | **Venom Effect**<br>1&hairsp;_min_ or until attack hits |                     CON<br>15                      |                        `2d10`<br>_p{ .icon-poison }_                         |
+| _R{ .icon-ranged .size-xl }_ | **Dagger (throw)**<br>_Ranged Attack_<br>20 _(60)_      | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` | `1d4`&hairsp;`VIEW[sign({memory^DEX_mod})]`<br>_p{ .icon-piercing }_         |
+| _U{ .icon-unarmed .size-xl}_ | **Unarmed strike**<br>_Meele Attack_<br>5 _ft._         |  `VIEW[sign({memory^STR_mod}+{memory^PROF_mod})]`  |                       `VIEW[sign(1+{memory^STR_mod})]`                       |
+|                              | **Net**<br>_Ranged Attack_<br>5 _(15)_                  |           `VIEW[sign({memory^DEX_mod})]`           |                                                                              |
+{ .actions-in-combat .float }
+
+- **Activate Dagger of Venom{.action}**
+  The Dagger covers itself with a thick, black poison.
+  The substance stays on the blade for 1 _min_ or until you hit a creature with the Dagger.
+- [[Net]]{.action}
+  If a Large or smaller creature is hit with Net, it is restraint.
+  A creature within reach can attempt a DC 10 STR check or deal 5 _slashing{.icon-slashing}_ damage, to destroy the net.
+
+#### Non-damaging attacks
+
+- [[Grapple]]{.action}
+  make an _unarmed strike_, on a hit, apply the _Grappled Condition_
+- [[Shove]]{.action}
+  make a contested _Strength_ roll, on a success, knock the target prone of move it 5 _ft_
+
+#### Default Actions
+
+- [[Dash]]{.action}
+  Double your movement for this round
+- [[Disengage]]{.action}
+  you don't provoke _oportunity attacks_ this round
+- [[Dodge]]{.action}
+  until the start of your next turn, attacks against you are made with disadvantage, you have advantage on Dex-Saves
+- [[Hide]]{.action}
+  make a _Stealth_ check, on success you are _hidden_
+- [[Ready]]{.action}
+  define a trigger and chose an action to hold,
+  use your reaction to complete the action if the trigger happens
+- [[Help]]{.action}
+  assist an ally, giving advantage
+- [[Search]]{.action}
+- [[Use]]{.action}
+
+### Bonus Actions
+
+- **Two weapon Fighting**{.action}
+  If used the Attack-action and you have a second weapon in you offhand, you may attack a second time using it.
+- [[Cunning Action]]{.action}
+  You may use [[Dash]], [[Disengage]] or [[Hide]] as a bonus action.
+
+### Reactions
+
+- [[Opportunity Attack]]{.action}
+  when a creature that you can see leaves your reach, you can use your reaction to make one melee attack against it
+
+### Other
+
+- [[Sneak Attack]]{.action}
+  Once per turn, you can deal an extra `2d6` damage to one creature you hit with an attack with a finesse or ranged weapon if you have advantage on the attack roll. You don’t need advantage on the attack roll if another enemy of the target is within 5 ft. of it, that enemy isn’t incapacitated, and you don’t have disadvantage on the attack roll.

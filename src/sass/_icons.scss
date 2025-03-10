@@ -40,24 +40,49 @@
   width: 3em;
 }
 
+/* ----- the icon ----- */
 /* template */
 .icon-template::before {
   mask-image: unset;
 }
 
+/* ----- combat ----- */
+.icon-melee::before {
+  mask-image: svgs.$tw_combat_melee;
+}
+.icon-ranged::before {
+  mask-image: svgs.$tw_combat_ranged;
+}
+.icon-unarmed::before {
+  mask-image: svgs.$tw_weapon_strike;
+}
+
+/* ----- damage types ----- */
+.icon-piercing::before {
+  mask-image: svgs.$combat_piercing;
+}
+.icon-slashing::before {
+  mask-image: svgs.$tw_combat_reach;
+}
+.icon-poison::before {
+  background-color: #7b1fa2;
+  mask-image: svgs.$tw_damage_poison;
+}
+
+
 /* ----- movement types ----- */
 .icon-burrowing::before {
-  mask-image: svgs.$movement_burrowing;
+  mask-image: svgs.$tw_movement_burrowing;
 }
 .icon-climbing::before {
-  mask-image: svgs.$movement_climbing;
+  mask-image: svgs.$tw_movement_climbing;
 }
 .icon-flying::before {
-  mask-image: svgs.$movement_flying;
+  mask-image: svgs.$tw_movement_flying;
 }
 .icon-swimming::before {
-  mask-image: svgs.$movement_swimming;
+  mask-image: svgs.$tw_movement_swimming;
 }
 .icon-walking::before {
-  mask-image: svgs.$movement_walking;
+  mask-image: svgs.$tw_movement_walking;
 }

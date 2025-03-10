@@ -31,7 +31,7 @@ async function main() {
   });
   for (const file of svg_files) {
     let var_name = file
-      .replace("tw-dnd/icons/", "")
+      .replace("tw-dnd/icons/", "tw_")
       .replace(".svg", "")
       .replace("/", "_");
     fs.readFile(file, "utf8", (err, data) => {
