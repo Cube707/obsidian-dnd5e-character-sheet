@@ -32,7 +32,7 @@ exhaustion: 0
 >
 > Here is space for a short character description or some other notes on the character.
 >
-> `BUTTON[longrest,shortrest]`
+> `BUTTON[longrest,shortrest]` `BUTTON[conditions]`
 
 ```meta-bind-button
 label: Long Rest
@@ -60,6 +60,69 @@ actions:
   - type: sleep
     ms: 200
 ```
+```meta-bind-button
+label: Contitions
+icon: user-round-search
+style: primary
+class: conditions
+id: "conditions"
+hidden: true
+actions:
+  - type: inlineJS
+    code: document.querySelectorAll('[data-callout~="conditions"]').forEach(div=>div.classList.toggle('show'))
+```
+```meta-bind-button
+label: ''
+icon: plus
+style: primary
+class: plus
+id: "add-exhaustion"
+hidden: true
+actions:
+  - type: updateMetadata
+    bindTarget: exhaustion
+    evaluate: true
+    value: Math.min(getMetadata('exhaustion')+1, 6)
+  - type: sleep
+    ms: 50
+```
+```meta-bind-button
+label: ""
+icon: minus
+style: destructive
+class: minus
+id: sub-exhaustion
+hidden: true
+actions:
+  - type: updateMetadata
+    bindTarget: exhaustion
+    evaluate: true
+    value: Math.max(0, getMetadata('exhaustion')-1)
+  - type: sleep
+    ms: 50
+```
+
+> [!conditions]
+>
+> ##### Conditions
+> `INPUT[toggle:conditions.blinded]` Blinded
+> `INPUT[toggle:conditions.charmed]` Charmed
+> `INPUT[toggle:conditions.deafened]` Deafened
+> `INPUT[toggle:conditions.frightened]` Frightened
+> `INPUT[toggle:conditions.grappled]` Grappled
+> `INPUT[toggle:conditions.incapacitated]` Incapacitated
+> `INPUT[toggle:conditions.invisible]` Invisible
+> `INPUT[toggle:conditions.paralyzed]` Paralyzed
+> `INPUT[toggle:conditions.petrified]` Petrified
+> `INPUT[toggle:conditions.poisoned]` Poisoned
+> `INPUT[toggle:conditions.prone]` Prone
+> `INPUT[toggle:conditions.restrained]` Restrained
+> `INPUT[toggle:conditions.stunned]` Stunned
+> `INPUT[toggle:conditions.unconscious]` Unconscious
+>
+> ##### Exhaustion
+> `BUTTON[add-exhaustion,sub-exhaustion]` Level: `VIEW[{exhaustion}]`
+>
 
 ## Abilities
 

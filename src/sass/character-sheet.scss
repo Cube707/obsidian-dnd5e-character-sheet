@@ -54,6 +54,44 @@ body:has(.dnd5e-character-sheet) {
     p:not(:has(.image-embed)) {
       grid-column: span 2;
     }
+
+    p:has(.mb-button-group) {
+      display: grid;
+      grid-template-columns: subgrid;
+      margin-top: 1em;
+    }
+  }
+
+  [data-callout~="conditions"] {
+    @include reset.callout;
+
+    @at-root .markdown-preview-view#{&} {
+      display: none;
+      &.show {
+        display: block;
+      }
+    }
+
+    margin-top: 1em;
+    margin-left: auto;
+    width: 100%;
+    max-width: 50ch;
+    .callout-content {
+      // background-color: darkcyan;
+      padding: 1em;
+      border-radius: 1em;
+      border: 2px solid var(--color-base-60);
+      h5:first-of-type {
+        margin-top: 0;
+      }
+
+      .mb-button-group-inline:has(.plus + .minus) {
+        margin-right: 2em;
+        button {
+          height: auto;
+        }
+      }
+    }
   }
 
   @media (width > var.$mobile-breakpoint) {
