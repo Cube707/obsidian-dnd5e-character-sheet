@@ -152,7 +152,7 @@ body:has(.dnd5e-character-sheet) {
       margin-bottom: -1px;
       z-index: -1;
     }
-    .mb-input{
+    .mb-input {
       .mb-input-wrapper::before {
         content: attr(data-internal-value);
         display: block;
@@ -216,8 +216,8 @@ body:has(.dnd5e-character-sheet) {
 
     [class*="twicon-"] {
       translate: -0.2em -10%;
-      left:0.2em;
-      top:50%;
+      left: 0.2em;
+      top: 50%;
       &:empty {
         display: none;
       }
@@ -320,6 +320,59 @@ body:has(.dnd5e-character-sheet) {
         margin-top: -0.2em;
         grid-column: span 3;
       }
+    }
+
+    @media (width > (var.$mobile-breakpoint * 1.2)) {
+      float: left;
+      width: 50%;
+    }
+  }
+
+  [data-callout~="health-tracker"] {
+    @include reset.callout;
+    @extend .has-float;
+
+    h5,
+    .mb-view:has(.health-bar) {
+      grid-column: span 4;
+      margin-bottom: 0;
+    }
+    .temp-hp {
+      color: var(--color-cyan);
+    }
+    .health-bar .mb-progress-bar-input {
+      height: 0.5em;
+      cursor: unset;
+      pointer-events: none;
+      margin-block: 0.5em 1em;
+    }
+
+    p:has(.mb-button-group-inline) {
+      display: flex;
+      gap: 0.5em;
+      // justify-content: end;
+
+      .mb-input {
+        flex: 1;
+        input {
+          width: 100%;
+          min-width: 6ch;
+        }
+      }
+      button {
+        font-weight: bold;
+        color: var(--interactive-normal);
+      }
+    }
+
+    .damage > button {
+      background-color: var(--color-red);
+    }
+    .heal > button {
+      background-color: var(--color-green);
+    }
+    .temp > button {
+      background-color: var(--color-cyan);
     }
   }
 

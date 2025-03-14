@@ -1,6 +1,6 @@
 @use "var";
 
-[class^="el-"]:has(.float) {
+.has-float {
   @media (width > (var.$mobile-breakpoint * 1.2)) {
     float: right;
     margin: 0 0 1.5em 2em;
@@ -9,4 +9,9 @@
     position: relative;
     z-index: 10;
   }
+
+}
+
+[class^="el-"]:has(.float) {
+    @extend .has-float;
 }

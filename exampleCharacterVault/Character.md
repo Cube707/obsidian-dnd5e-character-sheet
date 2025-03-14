@@ -22,6 +22,11 @@ proficiencies:
   DEX_save: 1
   WIS_save: 1
 exhaustion: 0
+health:
+  rolled: 24
+  max: 34
+  current: 24
+  temp: 10
 ---
 
 > [!charater-details]
@@ -246,6 +251,7 @@ None
 
 ## Combat
 
+
 - { .amour-class }
   ##### AC
   `VIEW[10+{memory^DEX_mod}][math(class(val))]`
@@ -257,6 +263,64 @@ None
   _w{ .twicon-walking .size-m }_ `VIEW[{speed.walking}][math(class(val))]` _ft._
   _c{ .twicon-climbing .size-m }_ `VIEW[{speed.climbing}][math(class(val))]` _ft._
 { .combat-scores }
+
+> [!health-tracker]
+> ##### Hitpoints: `VIEW[{health.current}]`&hairsp;/&hairsp;`VIEW[{health.rolled}+{LVL}*{memory^CON_mod}][:health.max]` `VIEW[{health.temp}>0?print('(+$hp)',\{hp:{health.temp}\}):''][math(class(temp-hp))]`
+> ```meta-bind-js-view
+> {health.max} as max
+> ---
+> return engine.markdown.create(`\`\`\`meta-bind\nINPUT[progressBar(minValue(0),maxValue(${context.bound.max}),addLabels(false),class(health-bar)):health.current]\n\`\`\``)
+> ```
+> `INPUT[number(defaultValue(0)):memory^health_change]` `BUTTON[deal-damage,heal-hitpoints,temp-hitpoints]`
+
+```meta-bind-button
+label: "Damage"
+style: primary
+class: damage
+hidden: true
+id: "deal-damage"
+actions:
+  - type: updateMetadata
+    bindTarget: health.current
+    evaluate: true
+    value: "getMetadata('health.temp') == 0 ? Math.max(0, x - (getMetadata('memory^health_change')??0)) : x"
+  - type: updateMetadata
+    bindTarget: health.temp
+    evaluate: true
+    value: "x > 0 ? x - (getMetadata('memory^health_change')??0) : 0"
+  - type: updateMetadata
+    bindTarget: health.current
+    evaluate: true
+    value: "getMetadata('health.temp') < 0 ? Math.max(0, x + getMetadata('health.temp')) : x"
+  - type: updateMetadata
+    bindTarget: health.temp
+    evaluate: true
+    value: "x < 0 ? 0 : x"
+```
+```meta-bind-button
+label: "Heal"
+style: primary
+class: heal
+hidden: true
+id: "heal-hitpoints"
+actions:
+  - type: updateMetadata
+    bindTarget: health.current
+    evaluate: true
+    value: "Math.min(Math.max(0, x + (getMetadata('memory^health_change')??0)), getMetadata('health.max'))"
+```
+```meta-bind-button
+label: "Temp"
+style: primary
+class: temp
+hidden: true
+id: "temp-hitpoints"
+actions:
+  - type: updateMetadata
+    bindTarget: health.temp
+    evaluate: true
+    value: "Math.max(x, getMetadata('memory^health_change'))"
+```
 
 ### Actions
 
