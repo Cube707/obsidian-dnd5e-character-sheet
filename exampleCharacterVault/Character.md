@@ -21,6 +21,7 @@ proficiencies:
   deception: 1
   DEX_save: 1
   WIS_save: 1
+exhaustion: 0
 ---
 
 > [!charater-details]
@@ -30,6 +31,35 @@ proficiencies:
 > ![[token.png]]
 >
 > Here is space for a short character description or some other notes on the character.
+>
+> `BUTTON[longrest,shortrest]`
+
+```meta-bind-button
+label: Long Rest
+icon: home
+style: primary
+cssStyle: "background-color: #2e7d32"
+id: longrest
+hidden: true
+actions:
+  - type: inlineJS
+    code: new Notice("long rest completed")
+  - type: sleep
+    ms: 200
+```
+```meta-bind-button
+label: Short Rest
+icon: flame-kindling
+style: primary
+cssStyle: "background-color:#9e9d24"
+id: shortrest
+hidden: true
+actions:
+  - type: inlineJS
+    code: new Notice("short rest completed")
+  - type: sleep
+    ms: 200
+```
 
 ## Abilities
 
