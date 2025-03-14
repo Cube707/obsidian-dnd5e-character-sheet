@@ -146,27 +146,28 @@ actions:
   `VIEW[sign({memory^CHR_mod})][math(class(mod))]`
 { .ability-scores }
 
-| Prof                                                                                                                                                                       | Mod | Skill           |                                          Bonus                                          |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --------------- | :-------------------------------------------------------------------------------------: |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.acrobatics]`      | DEX | Acrobatics      |   `VIEW[sign(floor({proficiencies.acrobatics}*{memory^PROF_mod})+{memory^DEX_mod})]`    |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.animal_handling]` | WIS | Animal Handling | `VIEW[sign(floor({proficiencies.animal_handling}*{memory^PROF_mod})+{memory^WIS_mod})]` |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.arcana]`          | INT | Arcana          |     `VIEW[sign(floor({proficiencies.arcana}*{memory^PROF_mod})+{memory^INT_mod})]`      |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.deception]`       | STR | Athletics       |    `VIEW[sign(floor({proficiencies.deception}*{memory^PROF_mod})+{memory^STR_mod})]`    |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.animal_handling]` | CHR | Deception       | `VIEW[sign(floor({proficiencies.animal_handling}*{memory^PROF_mod})+{memory^CHR_mod})]` |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.history]`         | INT | History         |     `VIEW[sign(floor({proficiencies.history}*{memory^PROF_mod})+{memory^INT_mod})]`     |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.insight]`         | WIS | Insight         |     `VIEW[sign(floor({proficiencies.insight}*{memory^PROF_mod})+{memory^WIS_mod})]`     |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.intimidation]`    | CHR | Intimidation    |  `VIEW[sign(floor({proficiencies.intimidation}*{memory^PROF_mod})+{memory^CHR_mod})]`   |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.investigation]`   | INT | Investigation   |  `VIEW[sign(floor({proficiencies.investigation}*{memory^PROF_mod})+{memory^INT_mod})]`  |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.medicine]`        | WIS | Medicine        |    `VIEW[sign(floor({proficiencies.medicine}*{memory^PROF_mod})+{memory^WIS_mod})]`     |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.nature]`          | INT | Nature          |     `VIEW[sign(floor({proficiencies.nature}*{memory^PROF_mod})+{memory^INT_mod})]`      |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.perception]`      | WIS | Perception      |   `VIEW[sign(floor({proficiencies.perception}*{memory^PROF_mod})+{memory^WIS_mod})]`    |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.performance]`     | CHR | Performance     |   `VIEW[sign(floor({proficiencies.performance}*{memory^PROF_mod})+{memory^CHR_mod})]`   |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.persuasion]`      | CHR | Persuasion      |   `VIEW[sign(floor({proficiencies.persuasion}*{memory^PROF_mod})+{memory^CHR_mod})]`    |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.religion]`        | INT | Religion        |    `VIEW[sign(floor({proficiencies.religion}*{memory^PROF_mod})+{memory^INT_mod})]`     |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.sleight_of_hand]` | DEX | Sleight of Hand | `VIEW[sign(floor({proficiencies.sleight_of_hand}*{memory^PROF_mod})+{memory^DEX_mod})]` |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.stealth]`         | DEX | Stealth         |     `VIEW[sign(floor({proficiencies.stealth}*{memory^PROF_mod})+{memory^DEX_mod})]`     |
-| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.survival]`        | WIS | Survival        |    `VIEW[sign(floor({proficiencies.survival}*{memory^PROF_mod})+{memory^WIS_mod})]`     |
+| Prof                                                                                                                                                                       | Mod | Skill           |                                                                                 Bonus                                                                                 |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.acrobatics]`      | DEX | Acrobatics      |          `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.acrobatics}*{memory^PROF_mod})+{memory^DEX_mod})]`          |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.animal_handling]` | WIS | Animal Handling |       `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.animal_handling}*{memory^PROF_mod})+{memory^WIS_mod})]`        |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.arcana]`          | INT | Arcana          |            `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.arcana}*{memory^PROF_mod})+{memory^INT_mod})]`            |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.deception]`       | STR | Athletics       |          `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.deception}*{memory^PROF_mod})+{memory^STR_mod})]`           |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.animal_handling]` | CHR | Deception       |       `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.animal_handling}*{memory^PROF_mod})+{memory^CHR_mod})]`        |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.history]`         | INT | History         |           `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.history}*{memory^PROF_mod})+{memory^INT_mod})]`            |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.insight]`         | WIS | Insight         |           `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.insight}*{memory^PROF_mod})+{memory^WIS_mod})]`            |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.intimidation]`    | CHR | Intimidation    |         `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.intimidation}*{memory^PROF_mod})+{memory^CHR_mod})]`         |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.investigation]`   | INT | Investigation   |        `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.investigation}*{memory^PROF_mod})+{memory^INT_mod})]`         |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.medicine]`        | WIS | Medicine        |           `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.medicine}*{memory^PROF_mod})+{memory^WIS_mod})]`           |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.nature]`          | INT | Nature          |            `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.nature}*{memory^PROF_mod})+{memory^INT_mod})]`            |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.perception]`      | WIS | Perception      |          `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.perception}*{memory^PROF_mod})+{memory^WIS_mod})]`          |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.performance]`     | CHR | Performance     |         `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.performance}*{memory^PROF_mod})+{memory^CHR_mod})]`          |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.persuasion]`      | CHR | Persuasion      |          `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.persuasion}*{memory^PROF_mod})+{memory^CHR_mod})]`          |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.religion]`        | INT | Religion        |           `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.religion}*{memory^PROF_mod})+{memory^INT_mod})]`           |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.sleight_of_hand]` | DEX | Sleight of Hand |       `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.sleight_of_hand}*{memory^PROF_mod})+{memory^DEX_mod})]`        |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.stealth]`         | DEX | Stealth         | `VIEW[{shield_equipped} or {exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.stealth}*{memory^PROF_mod})+{memory^DEX_mod})]` |
+| `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.survival]`        | WIS | Survival        |           `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.survival}*{memory^PROF_mod})+{memory^WIS_mod})]`           |
 { .proficiencies-table .float }
+
 
 #### Saving Throws
 
@@ -234,8 +235,8 @@ Light Armor
 ### Defenses
 
 #### Resistances
-_A{.icon-advantage}_ CON saves against the poisoned condition
-_p{.icon-poison}_ poison damage
+_A{.twicon-advantage}_ CON saves against the poisoned condition
+_p{.twicon-poison}_ poison damage
 
 #### Immunities
 None
@@ -253,19 +254,19 @@ None
   `VIEW[sign({memory^DEX_mod})][math(class(val))]`
 - { .speed }
   ##### Speed
-  _w{ .icon-walking .size-m }_ `VIEW[{speed.walking}][math(class(val))]` _ft._
-  _c{ .icon-climbing .size-m }_ `VIEW[{speed.climbing}][math(class(val))]` _ft._
+  _w{ .twicon-walking .size-m }_ `VIEW[{speed.walking}][math(class(val))]` _ft._
+  _c{ .twicon-climbing .size-m }_ `VIEW[{speed.climbing}][math(class(val))]` _ft._
 { .combat-scores }
 
 ### Actions
 
 |                              | Info                                                    |                       Hit/DC                       |                                    Damage                                    |
 | :--------------------------: | :------------------------------------------------------ | :------------------------------------------------: | :--------------------------------------------------------------------------: |
-| _M{ .icon-melee .size-xl }_  | **Wip**<br>_Meele Attack_<br>10 _ft._                   | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` | `1d4`&hairsp;`VIEW[sign({memory^DEX_mod})]`<br>_s{ .icon-slashing }_<br>Slow |
-| _M{ .icon-melee .size-xl }_  | **Dagger of Venom**<br>_Meele Attack_<br>5 _ft._        | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` |     `1d4`&hairsp;`VIEW[sign({memory^DEX_mod})]`<br>_p{ .icon-piercing }_     |
-|                              | **Venom Effect**<br>1&hairsp;_min_ or until attack hits |                     CON<br>15                      |                        `2d10`<br>_p{ .icon-poison }_                         |
-| _R{ .icon-ranged .size-xl }_ | **Dagger (throw)**<br>_Ranged Attack_<br>20 _(60)_      | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` | `1d4`&hairsp;`VIEW[sign({memory^DEX_mod})]`<br>_p{ .icon-piercing }_         |
-| _U{ .icon-unarmed .size-xl}_ | **Unarmed strike**<br>_Meele Attack_<br>5 _ft._         |  `VIEW[sign({memory^STR_mod}+{memory^PROF_mod})]`  |                       `VIEW[sign(1+{memory^STR_mod})]`                       |
+| _M{ .twicon-melee .size-xl }_  | **Wip**<br>_Meele Attack_<br>10 _ft._                   | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` | `1d4`&hairsp;`VIEW[sign({memory^DEX_mod})]`<br>_s{ .twicon-slashing }_<br>Slow |
+| _M{ .twicon-melee .size-xl }_  | **Dagger of Venom**<br>_Meele Attack_<br>5 _ft._        | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` |     `1d4`&hairsp;`VIEW[sign({memory^DEX_mod})]`<br>_p{ .twicon-piercing }_     |
+|                              | **Venom Effect**<br>1&hairsp;_min_ or until attack hits |                     CON<br>15                      |                        `2d10`<br>_p{ .twicon-poison }_                         |
+| _R{ .twicon-ranged .size-xl }_ | **Dagger (throw)**<br>_Ranged Attack_<br>20 _(60)_      | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` | `1d4`&hairsp;`VIEW[sign({memory^DEX_mod})]`<br>_p{ .twicon-piercing }_         |
+| _U{ .twicon-unarmed .size-xl}_ | **Unarmed strike**<br>_Meele Attack_<br>5 _ft._         |  `VIEW[sign({memory^STR_mod}+{memory^PROF_mod})]`  |                       `VIEW[sign(1+{memory^STR_mod})]`                       |
 |                              | **Net**<br>_Ranged Attack_<br>5 _(15)_                  |           `VIEW[sign({memory^DEX_mod})]`           |                                                                              |
 { .actions-in-combat .float }
 
@@ -274,7 +275,7 @@ None
   The substance stays on the blade for 1 _min_ or until you hit a creature with the Dagger.
 - [[Net]]{.action}
   If a Large or smaller creature is hit with Net, it is restraint.
-  A creature within reach can attempt a DC 10 STR check or deal 5 _slashing{.icon-slashing}_ damage, to destroy the net.
+  A creature within reach can attempt a DC 10 STR check or deal 5 _slashing{.twicon-slashing}_ damage, to destroy the net.
 
 #### Non-damaging attacks
 
