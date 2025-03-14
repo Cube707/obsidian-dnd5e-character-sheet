@@ -128,22 +128,22 @@ actions:
 
 - ##### STR `VIEW[calcmodifier({STR})][math(hidden):memory^STR_mod]`
   `INPUT[number(class(val)):STR]`
-  `VIEW[sign({memory^STR_mod})][math(class(mod))]`
+  `VIEW[sign({memory^STR_mod})][math(class(sub))]`
 - ##### DEX `VIEW[calcmodifier({DEX})][math(hidden):memory^DEX_mod]`
   `INPUT[number(class(val)):DEX]`
-  `VIEW[sign({memory^DEX_mod})][math(class(mod))]`
+  `VIEW[sign({memory^DEX_mod})][math(class(sub))]`
 - ##### CON `VIEW[calcmodifier({CON})][math(hidden):memory^CON_mod]`
   `INPUT[number(class(val)):CON]`
-  `VIEW[sign({memory^CON_mod})][math(class(mod))]`
+  `VIEW[sign({memory^CON_mod})][math(class(sub))]`
 - ##### INT `VIEW[calcmodifier({INT})][math(hidden):memory^INT_mod]`
   `INPUT[number(class(val)):INT]`
-  `VIEW[sign({memory^INT_mod})][math(class(mod))]`
+  `VIEW[sign({memory^INT_mod})][math(class(sub))]`
 - ##### WIS `VIEW[calcmodifier({WIS})][math(hidden):memory^WIS_mod]`
   `INPUT[number(class(val)):WIS]`
-  `VIEW[sign({memory^WIS_mod})][math(class(mod))]`
+  `VIEW[sign({memory^WIS_mod})][math(class(sub))]`
 - ##### CHR `VIEW[calcmodifier({CHR})][math(hidden):memory^CHR_mod]`
   `INPUT[number(class(val)):CHR]`
-  `VIEW[sign({memory^CHR_mod})][math(class(mod))]`
+  `VIEW[sign({memory^CHR_mod})][math(class(sub))]`
 { .ability-scores }
 
 | Prof                                                                                                                                                                       | Mod | Skill           |                                                                                 Bonus                                                                                 |
