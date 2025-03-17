@@ -97,7 +97,6 @@ body:has(.dnd5e-character-sheet) {
   @media (width > var.$mobile-breakpoint) {
     ul.ability-scores {
       grid-template-columns: repeat(6, auto) !important;
-      justify-content: space-around !important;
     }
   }
   ul.ability-scores,
@@ -108,7 +107,7 @@ body:has(.dnd5e-character-sheet) {
     @include reset.list;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, auto);
     justify-content: space-between;
     place-items: center;
     isolation: isolate;
@@ -132,6 +131,7 @@ body:has(.dnd5e-character-sheet) {
 
   ul.ability-scores {
     gap: 2em 1em;
+    justify-content: space-around;
     li {
       width: 4.5em;
       gap: 0.25em;
