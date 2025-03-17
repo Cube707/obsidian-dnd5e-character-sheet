@@ -385,14 +385,24 @@ body:has(.dnd5e-character-sheet) {
       &:nth-child(2) {
         width: 100%;
       }
+      &:nth-child(4) {
+        min-width: 6rem;
+      }
     }
     td {
       vertical-align: middle;
 
-      strong {
+      strong:not(.dice) {
         color: var(--color-accent);
       }
     }
+  }
+
+  strong.dice {
+    color: var(--text-normal);
+    background: var(--interactive-normal);
+    padding-inline: 0.2em;
+    border-radius: 0.2em;
   }
 
   .action {
