@@ -76,36 +76,6 @@ actions:
   - type: inlineJS
     code: document.querySelectorAll('[data-callout~="conditions"]').forEach(div=>div.classList.toggle('show'))
 ```
-```meta-bind-button
-label: ''
-icon: plus
-style: primary
-class: plus
-id: "add-exhaustion"
-hidden: true
-actions:
-  - type: updateMetadata
-    bindTarget: exhaustion
-    evaluate: true
-    value: Math.min(getMetadata('exhaustion')+1, 6)
-  - type: sleep
-    ms: 50
-```
-```meta-bind-button
-label: ""
-icon: minus
-style: destructive
-class: minus
-id: sub-exhaustion
-hidden: true
-actions:
-  - type: updateMetadata
-    bindTarget: exhaustion
-    evaluate: true
-    value: Math.max(0, getMetadata('exhaustion')-1)
-  - type: sleep
-    ms: 50
-```
 
 > [!conditions]
 >
@@ -128,6 +98,91 @@ actions:
 > ##### Exhaustion
 > `BUTTON[add-exhaustion,sub-exhaustion]` Level: `VIEW[{exhaustion}]`
 >
+> ```meta-bind-js-view
+> {health.current} as current
+> {death_saves} and children as saves
+> ---
+> const mb = engine.getPlugin('obsidian-meta-bind-plugin').api;
+> container.addClass('death-saves');
+> const saves = context.bound.saves;
+> if (context.bound.current <= 0)
+> return engine.markdown.create(`##### Death Saves
+>   ${ Array(3).fill().map((_,i)=> `<i class="failure ${i<(saves.failures??0) ? 'x' : ''}"></i>`).join('') }
+>   ${ Array(3).fill().map((_,i)=> `<i class="success ${i<(saves.successes??0) ? 'x' : ''}"></i>`).join('') }
+>   \`BUTTON[fail-death-saves,succssed-death-saves,clear-death-saves]\`
+> `)
+> ```
+
+```meta-bind-button
+label: ""
+icon: plus
+style: primary
+class: plus
+id: "add-exhaustion"
+hidden: true
+actions:
+  - type: updateMetadata
+    bindTarget: exhaustion
+    evaluate: true
+    value: Math.min(getMetadata('exhaustion')+1, 6)
+  - type: sleep
+    ms: 50
+```
+
+```meta-bind-button
+label: ""
+icon: minus
+style: destructive
+class: minus
+id: sub-exhaustion
+hidden: true
+actions:
+  - type: updateMetadata
+    bindTarget: exhaustion
+    evaluate: true
+    value: Math.max(0, getMetadata('exhaustion')-1)
+  - type: sleep
+    ms: 50
+```
+
+```meta-bind-button
+label: Failure
+icon: skull
+style: destructive
+class: failure
+id: fail-death-saves
+hidden: true
+actions:
+  - type: updateMetadata
+    bindTarget: death_saves.failures
+    evaluate: true
+    value: (x??0) + 1
+```
+```meta-bind-button
+label: Success
+icon: heart-pulse
+style: primary
+class: success
+id: succssed-death-saves
+hidden: true
+actions:
+  - type: updateMetadata
+    bindTarget: death_saves.successes
+    evaluate: true
+    value: (x??0) + 1
+```
+```meta-bind-button
+label: Clear
+icon: sparkle
+style: default
+id: clear-death-saves
+hidden: true
+actions:
+  - type: updateMetadata
+    bindTarget: death_saves
+    evaluate: true
+    value: "undefined"
+```
 
 ## Abilities
 

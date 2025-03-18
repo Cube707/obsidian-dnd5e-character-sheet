@@ -84,7 +84,7 @@ body:has(.dnd5e-character-sheet) {
       padding: 1em;
       border-radius: 1em;
       border: 2px solid var(--color-base-60);
-      h5:first-of-type {
+      > h5:first-of-type {
         margin-top: 0;
       }
 
@@ -92,6 +92,48 @@ body:has(.dnd5e-character-sheet) {
         margin-right: 2em;
         button {
           height: auto;
+        }
+      }
+
+      .death-saves {
+        h5 {
+          margin-top: var(--heading-spacing);
+        }
+        p:has(i) {
+          display: flex;
+          gap: 1em 0.5em;
+          align-items: center;
+          justify-content: start;
+          flex-wrap: wrap;
+        }
+
+        $color_success: rgb(from var(--color-green) r g b / 0.75);
+        $color_failure: rgb(from var(--color-red) r g b / 0.75);
+        i {
+          flex: 0 1 1.5em;
+          aspect-ratio: 1;
+          border-radius: 0.5em;
+          outline: 1px solid;
+          &.success {
+            outline-color: $color_success;
+            &.x {
+              background-color: $color_success;
+            }
+          }
+          &.failure {
+            outline-color: $color_failure;
+            &.x {
+              background-color: $color_failure;
+            }
+          }
+        }
+        .mb-button.success button {
+          background-color: $color_success;
+          color: var(--text-normal);
+        }
+        .mb-button.failure button {
+          background-color: $color_failure;
+          color: var(--text-normal);
         }
       }
     }
