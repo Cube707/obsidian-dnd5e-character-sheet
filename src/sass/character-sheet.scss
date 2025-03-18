@@ -56,11 +56,12 @@ body:has(.dnd5e-character-sheet) {
     }
 
     p:has(.mb-button-group) {
-      display: grid;
-      grid-template-columns: subgrid;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
       margin-top: 1em;
       :last-child {
-        justify-self: end;
+        margin-left: auto;
       }
     }
   }
