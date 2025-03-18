@@ -60,7 +60,7 @@ body:has(.dnd5e-character-sheet) {
       grid-template-columns: subgrid;
       margin-top: 1em;
       :last-child {
-        justify-self: end
+        justify-self: end;
       }
     }
   }
@@ -232,6 +232,9 @@ body:has(.dnd5e-character-sheet) {
     grid-template-rows: repeat(3, auto);
     grid-auto-flow: column;
     justify-content: start;
+    @media (width < var.$mobile-breakpoint) {
+      justify-content: space-around;
+    }
     gap: 0.5em 1em;
     li {
       width: 100%;
@@ -389,6 +392,7 @@ body:has(.dnd5e-character-sheet) {
         width: 100%;
       }
       &:nth-child(4) {
+        text-align: center;
         min-width: 6rem;
       }
     }

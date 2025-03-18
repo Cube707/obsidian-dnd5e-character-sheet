@@ -324,14 +324,14 @@ actions:
 
 ### Actions
 
-|                               | Info                                                    |                       Hit/DC                       |                                     Damage                                     |
-| :---------------------------: | :------------------------------------------------------ | :------------------------------------------------: | :----------------------------------------------------------------------------: |
-| _M{ .twicon-melee .size-l }_  | **Wip**<br>_Meele Attack_<br>10 _ft._                   | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` | **1d4{.dice}**&hairsp;`VIEW[sign({memory^DEX_mod})]` _s{ .twicon-slashing }_<br>Slow |
-| _M{ .twicon-melee .size-l }_  | **Dagger of Venom**<br>_Meele Attack_<br>5 _ft._        | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` |      **1d4{.dice}**&hairsp;`VIEW[sign({memory^DEX_mod})]` _p{ .twicon-piercing }_       |
-|                               | **Venom Effect**<br>1&hairsp;_min_ or until attack hits |                     CON<br>15                      |                          **2d10{.dice}** _p{ .twicon-poison }_                          |
-| _R{ .twicon-ranged .size-l }_ | **Dagger (throw)**<br>_Ranged Attack_<br>20 _(60)_      | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` |     **1d4{.dice}**&hairsp;`VIEW[sign({memory^DEX_mod})]` _p{ .twicon-piercing }_     |
-| _U{ .twicon-unarmed .size-l}_ | **Unarmed strike**<br>_Meele Attack_<br>5 _ft._         |  `VIEW[sign({memory^STR_mod}+{memory^PROF_mod})]`  |                        `VIEW[sign(1+{memory^STR_mod})]`                        |
-|                               | **Net**<br>_Ranged Attack_<br>5 _(15)_                  |           `VIEW[sign({memory^DEX_mod})]`           |                                                                                |
+|                               | Info                                                    |                       Hit/DC                       |                                                                                 Damage |
+| :---------------------------: | :------------------------------------------------------ | :------------------------------------------------: | -------------------------------------------------------------------------------------: |
+| _M{ .twicon-melee .size-l }_  | **Wip**<br>_Meele Attack_<br>10 _ft._                   | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` | **1d4{.dice}**&hairsp;`VIEW[sign({memory^DEX_mod})]` _s{ .twicon-slashing }_<br>slowed |
+| _M{ .twicon-melee .size-l }_  | **Dagger of Venom**<br>_Meele Attack_<br>5 _ft._        | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` |           **1d4{.dice}**&hairsp;`VIEW[sign({memory^DEX_mod})]` _p{ .twicon-piercing }_ |
+|                               | **Venom Effect**<br>1&hairsp;_min_ or until attack hits |                     CON<br>15                      |                                                  **2d10{.dice}** _p{ .twicon-poison }_ |
+| _R{ .twicon-ranged .size-l }_ | **Dagger (throw)**<br>_Ranged Attack_<br>20 _(60)_      | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` |           **1d4{.dice}**&hairsp;`VIEW[sign({memory^DEX_mod})]` _p{ .twicon-piercing }_ |
+| _U{ .twicon-unarmed .size-l}_ | **Unarmed strike**<br>_Meele Attack_<br>5 _ft._         |  `VIEW[sign({memory^STR_mod}+{memory^PROF_mod})]`  |                                                       `VIEW[sign(1+{memory^STR_mod})]` |
+|                               | **Net**<br>_Ranged Attack_<br>5 _(15)_                  |           `VIEW[sign({memory^DEX_mod})]`           |                                                                              restraint |
 { .actions-in-combat .float }
 
 - **Activate Dagger of Venom{.action}**
