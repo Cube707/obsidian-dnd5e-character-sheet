@@ -96,6 +96,22 @@ body:has(.dnd5e-character-sheet) {
         }
       }
 
+      .exhaustion-tracker {
+        display:flex;
+        gap: 1em;
+        margin-bottom: 1em;
+        .exhaustion {
+          flex: 0 1 1.5em;
+          border-radius: 0.5em;
+          aspect-ratio: 1;
+          $color: var(--color-base-70);
+          outline: 1px solid $color;
+          &.x {
+            background-color: $color;
+          }
+        }
+      }
+
       .death-saves {
         h5 {
           margin-top: var(--heading-spacing);

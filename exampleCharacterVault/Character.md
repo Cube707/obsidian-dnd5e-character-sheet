@@ -21,7 +21,6 @@ proficiencies:
   deception: 1
   DEX_save: 1
   WIS_save: 1
-exhaustion: 0
 health:
   rolled: 24
   max: 34
@@ -78,7 +77,6 @@ actions:
 ```
 
 > [!conditions]
->
 > ##### Conditions
 > `INPUT[toggle:conditions.blinded]` Blinded
 > `INPUT[toggle:conditions.charmed]` Charmed
@@ -96,8 +94,16 @@ actions:
 > `INPUT[toggle:conditions.unconscious]` Unconscious
 >
 > ##### Exhaustion
-> `BUTTON[add-exhaustion,sub-exhaustion]` Level: `VIEW[{exhaustion}]`
+> ```meta-bind-js-view
+> {exhaustion} as exhaustion
+> ---
+> container.addClass('exhaustion-tracker');
+> return engine.markdown.create(
+>     Array(6).fill().map((_,i)=> `<div class="exhaustion ${i<(context.bound.exhaustion??0) ? 'x' : ''}"></div>`).join(''))
+> ```
+> `BUTTON[add-exhaustion,sub-exhaustion]` Level: `VIEW[+{exhaustion}]`&hairsp;/&hairsp;6
 >
+> <!-- Death Saves Tracker -->
 > ```meta-bind-js-view
 > {health.current} as current
 > {death_saves} and children as saves
@@ -124,11 +130,8 @@ actions:
   - type: updateMetadata
     bindTarget: exhaustion
     evaluate: true
-    value: Math.min(getMetadata('exhaustion')+1, 6)
-  - type: sleep
-    ms: 50
+    value: Math.min((x??0)+1, 6)
 ```
-
 ```meta-bind-button
 label: ""
 icon: minus
@@ -140,9 +143,11 @@ actions:
   - type: updateMetadata
     bindTarget: exhaustion
     evaluate: true
-    value: Math.max(0, getMetadata('exhaustion')-1)
-  - type: sleep
-    ms: 50
+    value: "(x??0) - 1"
+  - type: updateMetadata
+    bindTarget: exhaustion
+    evaluate: true
+    value: "x<=0 ? undefined : x"
 ```
 
 ```meta-bind-button
