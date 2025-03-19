@@ -316,7 +316,7 @@ None
 > ```meta-bind-js-view
 > {health.max} as max
 > ---
-> return engine.markdown.create(`\`\`\`meta-bind\nINPUT[progressBar(minValue(0),maxValue(${context.bound.max}),addLabels(false),class(health-bar)):health.current]\n\`\`\``)
+> return engine.markdown.create(`\`\`\`meta-bind\nINPUT[progressBar(maxValue(${context.bound.max}),addLabels(false),class(health-bar)):health.current]\n\`\`\``)
 > ```
 > `INPUT[number(defaultValue(0)):memory^health_change]` `BUTTON[deal-damage,heal-hitpoints,temp-hitpoints]`
 
