@@ -31,7 +31,7 @@ health:
 > [!charater-details]
 > # Test Character
 > ### Human - Rogue
-> #### Level: `VIEW[{LVL}][text]`
+> #### Level: `VIEW[{LVL}]`
 > ![[token.png]]
 >
 > Here is space for a short character description or some other notes on the character.
