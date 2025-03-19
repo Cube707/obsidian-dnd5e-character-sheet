@@ -401,30 +401,19 @@ actions:
   If a Large or smaller creature is hit with Net, it is restraint.
   A creature within reach can attempt a DC 10 STR check or deal 5 _slashing{.twicon-slashing}_ damage, to destroy the net.
 
-#### Non-damaging attacks
-
-- [[Grapple]]{.action}
-  make an _unarmed strike_, on a hit, apply the _Grappled Condition_
-- [[Shove]]{.action}
-  make a contested _Strength_ roll, on a success, knock the target prone of move it 5 _ft_
-
 #### Default Actions
 
+- [[Grapple]]{.action}
+- [[Shove]]{.action}
 - [[Dash]]{.action}
-  Double your movement for this round
 - [[Disengage]]{.action}
-  you don't provoke _oportunity attacks_ this round
 - [[Dodge]]{.action}
-  until the start of your next turn, attacks against you are made with disadvantage, you have advantage on Dex-Saves
 - [[Hide]]{.action}
-  make a _Stealth_ check, on success you are _hidden_
 - [[Ready]]{.action}
-  define a trigger and chose an action to hold,
-  use your reaction to complete the action if the trigger happens
 - [[Help]]{.action}
-  assist an ally, giving advantage
 - [[Search]]{.action}
 - [[Use]]{.action}
+{ .inline-list }
 
 ### Bonus Actions
 
