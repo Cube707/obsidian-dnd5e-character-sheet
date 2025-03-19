@@ -192,23 +192,17 @@ actions:
 ## Abilities
 
 - ##### STR `VIEW[calcmodifier({STR})][math(hidden):memory^STR_mod]`
-  `INPUT[number(class(val)):STR]`
-  `VIEW[sign({memory^STR_mod})][math(class(sub))]`
+  `INPUT[number(class(val)):STR]` `VIEW[sign({memory^STR_mod})][math(class(sub))]`
 - ##### DEX `VIEW[calcmodifier({DEX})][math(hidden):memory^DEX_mod]`
-  `INPUT[number(class(val)):DEX]`
-  `VIEW[sign({memory^DEX_mod})][math(class(sub))]`
+  `INPUT[number(class(val)):DEX]` `VIEW[sign({memory^DEX_mod})][math(class(sub))]`
 - ##### CON `VIEW[calcmodifier({CON})][math(hidden):memory^CON_mod]`
-  `INPUT[number(class(val)):CON]`
-  `VIEW[sign({memory^CON_mod})][math(class(sub))]`
+  `INPUT[number(class(val)):CON]` `VIEW[sign({memory^CON_mod})][math(class(sub))]`
 - ##### INT `VIEW[calcmodifier({INT})][math(hidden):memory^INT_mod]`
-  `INPUT[number(class(val)):INT]`
-  `VIEW[sign({memory^INT_mod})][math(class(sub))]`
+  `INPUT[number(class(val)):INT]` `VIEW[sign({memory^INT_mod})][math(class(sub))]`
 - ##### WIS `VIEW[calcmodifier({WIS})][math(hidden):memory^WIS_mod]`
-  `INPUT[number(class(val)):WIS]`
-  `VIEW[sign({memory^WIS_mod})][math(class(sub))]`
+  `INPUT[number(class(val)):WIS]` `VIEW[sign({memory^WIS_mod})][math(class(sub))]`
 - ##### CHR `VIEW[calcmodifier({CHR})][math(hidden):memory^CHR_mod]`
-  `INPUT[number(class(val)):CHR]`
-  `VIEW[sign({memory^CHR_mod})][math(class(sub))]`
+  `INPUT[number(class(val)):CHR]` `VIEW[sign({memory^CHR_mod})][math(class(sub))]`
 { .ability-scores }
 
 | Prof                                                                                                                                                                       | Mod | Skill           |                                                                                 Bonus                                                                                 |
@@ -233,27 +227,20 @@ actions:
 | `INPUT[inlineSelect(defaultValue(0), option(0,not), option(0.5,half), option(1,proficient), option(2,expert), class(proficiency-selector)):proficiencies.survival]`        | WIS | Survival        |           `VIEW[{exhaustion}>=1?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.survival}*{memory^PROF_mod})+{memory^WIS_mod})]`           |
 { .proficiencies-table .float }
 
-
 #### Saving Throws
 
 - ##### Strength
-  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.STR_save]`
-  `VIEW[sign(floor({proficiencies.STR_save}*{memory^PROF_mod})+{memory^STR_mod})][math(class(val))]`
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.STR_save]` `VIEW[sign(floor({proficiencies.STR_save}*{memory^PROF_mod})+{memory^STR_mod})][math(class(val))]`
 - ##### Dexterity
-  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.DEX_save]`
-  `VIEW[sign(floor({proficiencies.DEX_save}*{memory^PROF_mod})+{memory^DEX_mod})][math(class(val))]`
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.DEX_save]` `VIEW[sign(floor({proficiencies.DEX_save}*{memory^PROF_mod})+{memory^DEX_mod})][math(class(val))]`
 - ##### Constitution
-  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.CON_save]`
-  `VIEW[sign(floor({proficiencies.CON_save}*{memory^PROF_mod})+{memory^CON_mod})][math(class(val))]`
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.CON_save]` `VIEW[sign(floor({proficiencies.CON_save}*{memory^PROF_mod})+{memory^CON_mod})][math(class(val))]`
 - ##### Intelligence
-  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.INT_save]`
-  `VIEW[sign(floor({proficiencies.INT_save}*{memory^PROF_mod})+{memory^INT_mod})][math(class(val))]`
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.INT_save]` `VIEW[sign(floor({proficiencies.INT_save}*{memory^PROF_mod})+{memory^INT_mod})][math(class(val))]`
 - ##### Wisdom
-  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.WIS_save]`
-  `VIEW[sign(floor({proficiencies.WIS_save}*{memory^PROF_mod})+{memory^WIS_mod})][math(class(val))]`
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.WIS_save]` `VIEW[sign(floor({proficiencies.WIS_save}*{memory^PROF_mod})+{memory^WIS_mod})][math(class(val))]`
 - ##### Charisma
-  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.CHR_save]`
-  `VIEW[sign(floor({proficiencies.CHR_save}*{memory^PROF_mod})+{memory^CHR_mod})][math(class(val))]`
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.CHR_save]` `VIEW[sign(floor({proficiencies.CHR_save}*{memory^PROF_mod})+{memory^CHR_mod})][math(class(val))]`
 { .saving-scores }
 
 #### Senses

@@ -97,7 +97,7 @@ body:has(.dnd5e-character-sheet) {
       }
 
       .exhaustion-tracker {
-        display:flex;
+        display: flex;
         gap: 1em;
         margin-bottom: 1em;
         .exhaustion {
@@ -156,11 +156,6 @@ body:has(.dnd5e-character-sheet) {
     }
   }
 
-  @media (width > var.$mobile-breakpoint) {
-    ul.ability-scores {
-      grid-template-columns: repeat(6, auto) !important;
-    }
-  }
   ul.ability-scores,
   ul.saving-scores,
   ul.senses-scores,
@@ -194,6 +189,9 @@ body:has(.dnd5e-character-sheet) {
   ul.ability-scores {
     gap: 2em 1em;
     justify-content: space-around;
+    @media (width > var.$mobile-breakpoint) {
+      grid-template-columns: repeat(6, auto) !important;
+    }
     li {
       width: 4.5em;
       gap: 0.25em;
@@ -201,11 +199,13 @@ body:has(.dnd5e-character-sheet) {
       border-radius: 1em;
     }
     code:has(.val) {
+      grid-row: 2;
       padding: 0;
       margin-bottom: 3px;
       color: inherit;
     }
     code:has(.sub) {
+      grid-row: 3;
       width: 2.75em;
       font-size: 1em;
       border-radius: 0.5em 0.5em 0 0;
