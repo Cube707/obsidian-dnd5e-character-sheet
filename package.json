@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "description": "This repo contains the source-files used to create the files needed by obsidian, both CSS and JS.",
   "scripts": {
-    "build": "concurrently \"npm run build-js\" \"npm run build-css\"",
-    "build-js": "ncc build --minify src/ts/startup-script.ts && cp dist/index.js exampleCharacterVault/dnd5e-character-sheet.js ",
+    "build": "concurrently \"npm run build-css\"",
     "build-css": "node assets/svg/encode-svgs.js && sass --style=compressed --no-source-map src/sass/character-sheet.scss:exampleCharacterVault/.obsidian/snippets/dnd5e-character-sheet.css",
     "watch-css": "node assets/svg/encode-svgs.js && sass --watch --no-source-map src/sass/character-sheet.scss:exampleCharacterVault/.obsidian/snippets/dnd5e-character-sheet.css"
   },
