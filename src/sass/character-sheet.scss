@@ -246,20 +246,20 @@ body:has(.dnd5e-character-sheet) {
       }
     }
     [data-internal-value="0"]::before {
-      background-color: var(--color-base-70);
+      background-color: var(--text-faint);
       mask-image: svgs.$proficienty_not-proficient;
     }
     [data-internal-value="0.5"]::before {
-      background-color: var(--color-base-70);
-      mask-image: url('data:image/svg+xml,<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="24.881" fill="none" stroke="%23000" stroke-width="7.5"/><path d="m64.977 31.92-33.057 33.057c-9.3035-11.131-8.8442-22.129 0.04565-33.011 10.809-8.7803 21.798-9.4558 33.011-0.04565z"/></svg>');
+      background-color: var(--text-normal);
+      mask-image: svgs.$proficienty_half-proficient;
     }
     [data-internal-value="1"]::before {
       background-color: var(--color-accent);
-      mask-image: url('data:image/svg+xml,<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="24.881" stroke="%23000" stroke-width="7.5"/></svg>');
+      mask-image: svgs.$proficienty_proficient;
     }
     [data-internal-value="2"]::before {
       background-color: var(--color-accent);
-      mask-image: url('data:image/svg+xml,<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="24.881"/><circle cx="50" cy="50" r="39.895" fill="none" stroke="%23000" stroke-width="7.5"/></svg>');
+      mask-image: svgs.$proficienty_expert;
     }
   }
 
