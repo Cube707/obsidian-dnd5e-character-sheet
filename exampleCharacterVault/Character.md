@@ -38,44 +38,6 @@ health:
 >
 > `BUTTON[longrest,shortrest]` `BUTTON[conditions]`
 
-```meta-bind-button
-label: Long Rest
-icon: home
-style: primary
-cssStyle: "background-color: #2e7d32"
-id: longrest
-hidden: true
-actions:
-  - type: inlineJS
-    code: new Notice("long rest completed")
-  - type: sleep
-    ms: 200
-```
-```meta-bind-button
-label: Short Rest
-icon: flame-kindling
-style: primary
-cssStyle: "background-color:#9e9d24"
-id: shortrest
-hidden: true
-actions:
-  - type: inlineJS
-    code: new Notice("short rest completed")
-  - type: sleep
-    ms: 200
-```
-```meta-bind-button
-label: Contitions
-icon: user-round-search
-style: primary
-class: conditions
-id: "conditions"
-hidden: true
-actions:
-  - type: inlineJS
-    code: document.querySelectorAll('[data-callout~="conditions"]').forEach(div=>div.classList.toggle('show'))
-```
-
 > [!conditions]
 > ##### Conditions
 > `INPUT[toggle:conditions.blinded]` Blinded
@@ -119,74 +81,6 @@ actions:
 > `)
 > ```
 
-```meta-bind-button
-label: ""
-icon: plus
-style: primary
-class: plus
-id: "add-exhaustion"
-hidden: true
-actions:
-  - type: updateMetadata
-    bindTarget: exhaustion
-    evaluate: true
-    value: Math.min((x??0)+1, 6)
-```
-```meta-bind-button
-label: ""
-icon: minus
-style: destructive
-class: minus
-id: sub-exhaustion
-hidden: true
-actions:
-  - type: updateMetadata
-    bindTarget: exhaustion
-    evaluate: true
-    value: "(x??0) - 1"
-  - type: updateMetadata
-    bindTarget: exhaustion
-    evaluate: true
-    value: "x<=0 ? undefined : x"
-```
-
-```meta-bind-button
-label: Failure
-icon: skull
-style: destructive
-class: failure
-id: fail-death-saves
-hidden: true
-actions:
-  - type: updateMetadata
-    bindTarget: death_saves.failures
-    evaluate: true
-    value: Math.min((x??0) + 1, 3)
-```
-```meta-bind-button
-label: Success
-icon: heart-pulse
-style: primary
-class: success
-id: succssed-death-saves
-hidden: true
-actions:
-  - type: updateMetadata
-    bindTarget: death_saves.successes
-    evaluate: true
-    value: Math.min((x??0) + 1, 3)
-```
-```meta-bind-button
-label: Clear
-style: default
-id: clear-death-saves
-hidden: true
-actions:
-  - type: updateMetadata
-    bindTarget: death_saves
-    evaluate: true
-    value: "undefined"
-```
 
 ## Abilities
 
@@ -295,9 +189,8 @@ None
 #### Vulnerabilities
 None
 
+
 ## Combat
-
-
 - { .amour-class }
   ##### AC
   `VIEW[10+{memory^DEX_mod}][math(class(val))]`
@@ -319,55 +212,6 @@ None
 > ```
 > `INPUT[number(defaultValue(0)):memory^health_change]` `BUTTON[deal-damage,heal-hitpoints,temp-hitpoints]`
 
-```meta-bind-button
-label: "Damage"
-style: primary
-class: damage
-hidden: true
-id: "deal-damage"
-actions:
-  - type: updateMetadata
-    bindTarget: health.current
-    evaluate: true
-    value: "getMetadata('health.temp') == 0 ? Math.max(0, x - (getMetadata('memory^health_change')??0)) : x"
-  - type: updateMetadata
-    bindTarget: health.temp
-    evaluate: true
-    value: "x > 0 ? x - (getMetadata('memory^health_change')??0) : 0"
-  - type: updateMetadata
-    bindTarget: health.current
-    evaluate: true
-    value: "getMetadata('health.temp') < 0 ? Math.max(0, x + getMetadata('health.temp')) : x"
-  - type: updateMetadata
-    bindTarget: health.temp
-    evaluate: true
-    value: "x < 0 ? 0 : x"
-```
-```meta-bind-button
-label: "Heal"
-style: primary
-class: heal
-hidden: true
-id: "heal-hitpoints"
-actions:
-  - type: updateMetadata
-    bindTarget: health.current
-    evaluate: true
-    value: "Math.min(Math.max(0, x + (getMetadata('memory^health_change')??0)), getMetadata('health.max'))"
-```
-```meta-bind-button
-label: "Temp"
-style: primary
-class: temp
-hidden: true
-id: "temp-hitpoints"
-actions:
-  - type: updateMetadata
-    bindTarget: health.temp
-    evaluate: true
-    value: "Math.max(x, getMetadata('memory^health_change'))"
-```
-
 ### Actions
 
 |                               | Info                                                    |                       Hit/DC                       |                                                                                 Damage |
@@ -380,7 +224,7 @@ actions:
 |                               | **Net**<br>_Ranged Attack_<br>5 _(15)_                  |           `VIEW[sign({memory^DEX_mod})]`           |                                                                              restraint |
 { .actions-in-combat .float }
 
-- **Activate Dagger of Venom{.action}**
+- [[Dagger of Venom|Activate Dagger of Venom]]{.action}
   The Dagger covers itself with a thick, black poison.
   The substance stays on the blade for 1 _min_ or until you hit a creature with the Dagger.
 - [[Net]]{.action}
@@ -429,6 +273,7 @@ actions:
   Any creature that enters the area must succeed on a DC 15 DEX-save or stop moving this turn, take 1 piercing damage and reduces it's walking speed by 10 feet until it regains at least 1 hit point.
   A creature moving through the area at half speed doesn't need to make the save.
 
+
 ## Inventory
 
 ```js-engine
@@ -438,4 +283,169 @@ let items = dv.pages('"inventory"')
     .sort((e) => e.order_prio ?? 0, 'desc', (a,b) => a - b)
     .map((p) => `![[${p.file.name}#\`=this.file.name\`]]`)
 return engine.markdown.create(items.join('\n'))
+```
+
+
+<!-- ===== Buttons for all interactive stuff ================================================== -->
+
+<!-- buttons for long and short rest -->
+```meta-bind-button
+label: Long Rest
+icon: home
+style: primary
+cssStyle: "background-color: #2e7d32"
+id: longrest
+hidden: true
+actions:
+  - type: inlineJS
+    code: new Notice("long rest completed")
+  - type: sleep
+    ms: 200
+```
+```meta-bind-button
+label: Short Rest
+icon: flame-kindling
+style: primary
+cssStyle: "background-color:#9e9d24"
+id: shortrest
+hidden: true
+actions:
+  - type: inlineJS
+    code: new Notice("short rest completed")
+  - type: sleep
+    ms: 200
+```
+
+<!-- button to toggle the conditions view -->
+```meta-bind-button
+label: Contitions
+icon: user-round-search
+style: primary
+class: conditions
+id: "conditions"
+hidden: true
+actions:
+  - type: inlineJS
+    code: document.querySelectorAll('[data-callout~="conditions"]').forEach(div=>div.classList.toggle('show'))
+```
+
+<!-- buttons for the exhaustion tracker -->
+```meta-bind-button
+label: ""
+icon: plus
+style: primary
+class: plus
+id: "add-exhaustion"
+hidden: true
+actions:
+  - type: updateMetadata
+    bindTarget: exhaustion
+    evaluate: true
+    value: Math.min((x??0)+1, 6)
+```
+```meta-bind-button
+label: ""
+icon: minus
+style: destructive
+class: minus
+id: sub-exhaustion
+hidden: true
+actions:
+  - type: updateMetadata
+    bindTarget: exhaustion
+    evaluate: true
+    value: "(x??0) - 1"
+  - type: updateMetadata
+    bindTarget: exhaustion
+    evaluate: true
+    value: "x<=0 ? undefined : x"
+```
+
+ <!-- buttons for the Death-Saves tracker -->
+```meta-bind-button
+label: Failure
+icon: skull
+style: destructive
+class: failure
+id: fail-death-saves
+hidden: true
+actions:
+  - type: updateMetadata
+    bindTarget: death_saves.failures
+    evaluate: true
+    value: Math.min((x??0) + 1, 3)
+```
+```meta-bind-button
+label: Success
+icon: heart-pulse
+style: primary
+class: success
+id: succssed-death-saves
+hidden: true
+actions:
+  - type: updateMetadata
+    bindTarget: death_saves.successes
+    evaluate: true
+    value: Math.min((x??0) + 1, 3)
+```
+```meta-bind-button
+label: Clear
+style: default
+id: clear-death-saves
+hidden: true
+actions:
+  - type: updateMetadata
+    bindTarget: death_saves
+    evaluate: true
+    value: "undefined"
+```
+
+<!-- buttons for the health tracker -->
+```meta-bind-button
+label: "Damage"
+style: primary
+class: damage
+hidden: true
+id: "deal-damage"
+actions:
+  - type: updateMetadata
+    bindTarget: health.current
+    evaluate: true
+    value: "getMetadata('health.temp') == 0 ? Math.max(0, x - (getMetadata('memory^health_change')??0)) : x"
+  - type: updateMetadata
+    bindTarget: health.temp
+    evaluate: true
+    value: "x > 0 ? x - (getMetadata('memory^health_change')??0) : 0"
+  - type: updateMetadata
+    bindTarget: health.current
+    evaluate: true
+    value: "getMetadata('health.temp') < 0 ? Math.max(0, x + getMetadata('health.temp')) : x"
+  - type: updateMetadata
+    bindTarget: health.temp
+    evaluate: true
+    value: "x < 0 ? 0 : x"
+```
+```meta-bind-button
+label: "Heal"
+style: primary
+class: heal
+hidden: true
+id: "heal-hitpoints"
+actions:
+  - type: updateMetadata
+    bindTarget: health.current
+    evaluate: true
+    value: "Math.min(Math.max(0, x + (getMetadata('memory^health_change')??0)), getMetadata('health.max'))"
+```
+```meta-bind-button
+label: "Temp"
+style: primary
+class: temp
+hidden: true
+id: "temp-hitpoints"
+actions:
+  - type: updateMetadata
+    bindTarget: health.temp
+    evaluate: true
+    value: "Math.max(x, getMetadata('memory^health_change'))"
 ```
