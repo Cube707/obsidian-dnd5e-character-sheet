@@ -385,7 +385,9 @@ body:has(.dnd5e-character-sheet) {
         grid-column: span 3;
       }
     }
+  }
 
+  div:has(> ul.combat-scores):has(+ div [data-callout-metadata="float"]) {
     @media (width > (var.$mobile-breakpoint * 1.2)) {
       float: left;
       width: 50%;
@@ -394,7 +396,13 @@ body:has(.dnd5e-character-sheet) {
 
   [data-callout~="health-tracker"] {
     @include reset.callout;
-    @extend .has-float;
+    &[data-callout-metadata="float"] {
+      @extend .has-float;
+    }
+    @media (width > var.$mobile-breakpoint) {
+      max-width: 50ch;
+      margin-left: auto;
+    }
 
     h5,
     .mb-view:has(.health-bar) {

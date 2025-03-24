@@ -203,7 +203,7 @@ None
   _c{ .twicon-climbing .size-m }_ `VIEW[{speed.climbing}][math(class(val))]` _ft._
 { .combat-scores }
 
-> [!health-tracker]
+> [!health-tracker|float]
 > ##### Hitpoints: `VIEW[{health.current}]`&hairsp;/&hairsp;`VIEW[{health.rolled}+{LVL}*{memory^CON_mod}][:health.max]` `VIEW[{health.temp}>0?print('(+$hp)',\{hp:{health.temp}\}):''][math(class(temp-hp))]`
 > ```meta-bind-js-view
 > {health.max} as max
