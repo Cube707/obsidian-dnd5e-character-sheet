@@ -386,6 +386,8 @@ actions:
 - [[Net]]{.action}
   If a Large or smaller creature is hit with Net, it is restraint.
   A creature within reach can attempt a DC 10 STR check or deal 5 _slashing{.twicon-slashing}_ damage, to destroy the net.
+- [[Caltrops (Bag)|Spread Caltrops]]{.action}
+  You can spread the bag of caltrops to cover a square area that is 5 feet on a side.
 
 #### Default Actions
 
@@ -415,13 +417,17 @@ actions:
 
 ### Other
 
-|                              | Info                                          |         Hit/DC          |         Damage |
-| :--------------------------: | :-------------------------------------------- | :---------------------: | -------------: |
-| _M{ .twicon-melee .size-l }_ | **Sneat Attack**<br>_Effect_<br>once per turn | advantage<br>on attack  | **2d6{.dice}** |
+|                              | Info                                          |         Hit/DC         |                                 Damage |
+| :--------------------------: | :-------------------------------------------- | :--------------------: | -------------------------------------: |
+| _M{ .twicon-melee .size-l }_ | **Sneat Attack**<br>_Effect_<br>once per turn | advantage<br>on attack |                         **2d6{.dice}** |
+| _S{ .twicon-square .size-l }_ | **Caltrops**<br>_Area Effect_                 |       DEX<br>15        | 1 _p{ .twicon-piercing }_<br>-10 _ft._ |s
 { .actions-in-combat }
 
 - [[Sneak Attack]]{.action}
   Once per turn, you can deal an extra `2d6` damage to one creature you hit with an attack with a finesse or ranged weapon if you have advantage on the attack roll. You don’t need advantage on the attack roll if another enemy of the target is within 5 ft. of it, that enemy isn’t incapacitated, and you don’t have disadvantage on the attack roll.
+- [[Caltrops (Bag)|Caltrops]]{.action}
+  Any creature that enters the area must succeed on a DC 15 DEX-save or stop moving this turn, take 1 piercing damage and reduces it's walking speed by 10 feet until it regains at least 1 hit point.
+  A creature moving through the area at half speed doesn't need to make the save.
 
 ## Inventory
 

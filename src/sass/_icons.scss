@@ -79,6 +79,11 @@
   mask-image: svgs.$tw_damage_poison;
 }
 
+/* ----- areas types ----- */
+.twicon-square::before {
+  mask-image: svgs.$tw_target_square;
+}
+
 /* ----- movement types ----- */
 .twicon-burrowing::before {
   mask-image: svgs.$tw_movement_burrowing;
