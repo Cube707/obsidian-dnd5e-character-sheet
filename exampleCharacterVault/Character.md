@@ -371,7 +371,7 @@ actions:
     value: "x<=0 ? undefined : x"
 ```
 
- <!-- buttons for the Death-Saves tracker -->
+<!-- buttons for the Death-Saves tracker -->
 ```meta-bind-button
 label: Failure
 icon: skull

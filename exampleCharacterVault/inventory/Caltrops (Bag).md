@@ -10,7 +10,7 @@ weight: 2
 ## `=this.file.name`
 
 > [!item-infos]
-> Cost: `VIEW[{cost}]`&hairsp;_Gp._
+> Cost: `VIEW[{cost}]`&hairsp;_gp._
 > Amount: `VIEW[{amount}]`
 > `BUTTON[buy-item,use-item]`
 
