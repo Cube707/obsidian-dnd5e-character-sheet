@@ -161,7 +161,7 @@ actions:
   - type: updateMetadata
     bindTarget: death_saves.failures
     evaluate: true
-    value: (x??0) + 1
+    value: Math.min((x??0) + 1, 3)
 ```
 ```meta-bind-button
 label: Success
@@ -174,11 +174,10 @@ actions:
   - type: updateMetadata
     bindTarget: death_saves.successes
     evaluate: true
-    value: (x??0) + 1
+    value: Math.min((x??0) + 1, 3)
 ```
 ```meta-bind-button
 label: Clear
-icon: sparkle
 style: default
 id: clear-death-saves
 hidden: true
