@@ -1,0 +1,20 @@
+.trash/
+
+# generated files
+.obsidian/snippets/dnd5e-character-sheet.css
+#dnd5e-character-sheet.js
+
+# don't store most of obsidians internal state
+.obsidian/*.json
+!.obsidian/appearance.json
+
+# ignore the plugins files, but not the settings
+.obsidian/plugins/*
+
+!.obsidian/plugins/obsidian-meta-bind-plugin
+.obsidian/plugins/obsidian-meta-bind-plugin/*
+!.obsidian/plugins/obsidian-meta-bind-plugin/data.json
+
+!.obsidian/plugins/js-engine
+.obsidian/plugins/js-engine/*
+!.obsidian/plugins/js-engine/data.json

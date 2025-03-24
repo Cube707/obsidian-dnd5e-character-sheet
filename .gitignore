@@ -3,21 +3,4 @@ node_modules/
 
 # generated files
 dist/
-example*/.obsidian/snippets/dnd5e-character-sheet.css
-#example*/dnd5e-character-sheet.js
 src/sass/_svgs.scss
-
-
-# Example Vault
-example*/.obsidian/*.json
-!example*/.obsidian/appearance.json
-
-example*/.obsidian/plugins/*
-!example*/.obsidian/plugins/js-engine
-!example*/.obsidian/plugins/obsidian-meta-bind-plugin
-
-example*/.obsidian/plugins/obsidian-meta-bind-plugin/*
-!example*/.obsidian/plugins/obsidian-meta-bind-plugin/data.json
-
-example*/.obsidian/plugins/js-engine/*
-!example*/.obsidian/plugins/js-engine/data.json
