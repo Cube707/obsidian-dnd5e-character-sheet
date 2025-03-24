@@ -441,7 +441,7 @@ body:has(.dnd5e-character-sheet) {
   }
 
   .actions-in-combat {
-    @media (width < var.$mobile-breakpoint) {
+    @media (width > var.$mobile-breakpoint) {
       max-width: 50ch;
     }
     th {

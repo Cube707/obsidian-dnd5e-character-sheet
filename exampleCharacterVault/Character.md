@@ -415,5 +415,21 @@ actions:
 
 ### Other
 
+|                              | Info                                          |         Hit/DC          |         Damage |
+| :--------------------------: | :-------------------------------------------- | :---------------------: | -------------: |
+| _M{ .twicon-melee .size-l }_ | **Sneat Attack**<br>_Effect_<br>once per turn | advantage<br>on attack  | **2d6{.dice}** |
+{ .actions-in-combat }
+
 - [[Sneak Attack]]{.action}
   Once per turn, you can deal an extra `2d6` damage to one creature you hit with an attack with a finesse or ranged weapon if you have advantage on the attack roll. You don’t need advantage on the attack roll if another enemy of the target is within 5 ft. of it, that enemy isn’t incapacitated, and you don’t have disadvantage on the attack roll.
+
+## Inventory
+
+```js-engine
+container.addClass('inventory-box');
+const dv = engine.getPlugin("dataview").api;
+let items = dv.pages('"inventory"')
+    .sort((e) => e.order_prio ?? 0, 'desc', (a,b) => a - b)
+    .map((p) => `![[${p.file.name}#\`=this.file.name\`]]`)
+return engine.markdown.create(items.join('\n'))
+```
