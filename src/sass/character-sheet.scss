@@ -1,4 +1,5 @@
 @use "sass:meta";
+@use "sass:map";
 @use "svgs";
 @use "var";
 @use "reset";
@@ -471,7 +472,43 @@ body:has(.dnd5e-character-sheet) {
     }
   }
 
+  [data-callout~="money-tracker"] {
+    @include reset.callout;
+    &[data-callout-metadata="float"] {
+      @extend .has-float;
+    }
+    @media (width > var.$mobile-breakpoint) {
+      max-width: 50ch;
+      margin-left: auto;
+    }
+
+    input {
+      width: 100%;
+        max-width: 3.8em;
+    }
+    .mb-input-wrapper::before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 1.2lh;
+      aspect-ratio: 1;
+      margin-right: 0.2em;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: contain;
+    }
+    @each $name, $color in var.$coin_colors {
+      .#{""+$name} {
+        > input {
+          border-bottom: 2px solid $color;
+        }
+        @extend .twicon-#{""+$name};
+      }
+    }
+  }
+
   .inventory-box > p {
+    margin-block: var(--heading-spacing);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30ch, 1fr));
     gap: 1rem;

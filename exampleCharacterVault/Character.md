@@ -26,6 +26,11 @@ health:
   max: 34
   current: 24
   temp: 10
+money:
+  platin: 6
+  gold: 29
+  silver: 58
+  copper: 103
 ---
 
 > [!charater-details]
@@ -275,6 +280,11 @@ None
 
 
 ## Inventory
+
+> [!money-tracker]
+> ##### Current: `VIEW[round(10*{money.platin} + {money.gold} + 0.1*{money.silver} + 0.01*{money.copper},2)]`&hairsp;_gp._
+> `INPUT[number(class(platin)):money.platin]` `INPUT[number(class(gold)):money.gold]` `INPUT[number(class(silver)):money.silver]` `INPUT[number(class(copper)):money.copper]`
+
 
 ```js-engine
 container.addClass('inventory-box');

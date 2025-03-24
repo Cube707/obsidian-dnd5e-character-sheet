@@ -1,4 +1,6 @@
+@use "sass:map";
 @use "svgs";
+@use "var";
 
 /* ----- generic settings ----- */
 [class*="twicon-"] {
@@ -40,10 +42,28 @@
   width: 3em;
 }
 
-/* ----- the icon ----- */
+/* ----- the icons ----- */
 /* template */
 .twicon-template::before {
   mask-image: unset;
+}
+
+/* ----- currency icons ----- */
+.twicon-copper::before {
+  background-color: map.get(var.$coin_colors, copper) !important;
+  mask-image: svgs.$coin_copper;
+}
+.twicon-silver::before {
+  background-color: map.get(var.$coin_colors, silver) !important;
+  mask-image: svgs.$coin_silver;
+}
+.twicon-gold::before {
+  background-color: map.get(var.$coin_colors, gold) !important;
+  mask-image: svgs.$coin_gold;
+}
+.twicon-platin::before {
+  background-color: map.get(var.$coin_colors, platin) !important;
+  mask-image: svgs.$coin_platin;
 }
 
 /* ----- dice icons ----- */
