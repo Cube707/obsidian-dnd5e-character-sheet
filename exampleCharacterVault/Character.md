@@ -35,7 +35,7 @@ money:
 
 > [!charater-details]
 > # Test Character
-> ### Human - Rogue
+> ### Human - Rogue (Arcane&nbsp;Trickster)
 > #### Level: `VIEW[{LVL}]`
 > ![[token.png]]
 >
