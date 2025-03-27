@@ -537,6 +537,7 @@ body:has(.dnd5e-character-sheet) {
 .dnd5e-character-item {
   .resource-tracker p {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 1em;
     .charge {

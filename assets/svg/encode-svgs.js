@@ -8,12 +8,10 @@ function encodeSVG(svg) {
     svg
       .replace(/%/g, "%25") // Encode %
       .replace(/#/g, "%23") // Encode #
-      .replace(/{/g, "%7B") // Encode {
-      .replace(/}/g, "%7D") // Encode }
-      // .replace(/</g, "%3C") // Encode <
-      // .replace(/>/g, "%3E") // Encode >
-      .replace(/\n/g, "") // remove newlines
-      .replace(/\s+/g, " ") // Minify spaces
+      .replace(/'/g, "%7B") // Encode '
+      .replace(/\s+/g, " ") // remove newlines
+      .replace(/(?<=>)\s+(?=<)/g, "") // minify whitespace between tags
+      .trim()
   );
 }
 
