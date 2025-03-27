@@ -546,6 +546,7 @@ body:has(.dnd5e-character-sheet) {
       outline: 1px solid var(--text-faint);
       display: inline-block;
       &.x {
+        outline: none;
         background: linear-gradient(-50deg, var(--color-accent), rgb(from var(--color-accent) r g b / 0.75));
       }
     }
