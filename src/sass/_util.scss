@@ -2,7 +2,7 @@
 @use "reset";
 
 .has-float {
-  @media (width > (var.$mobile-breakpoint * 1.2)) {
+  @container ( width > #{var.$mobile-breakpoint * 1.2} ) {
     float: right;
     margin-left: 1.5em;
     margin-bottom: 2em;

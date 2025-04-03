@@ -9,6 +9,9 @@ body:has(.dnd5e-character-sheet) {
   --file-line-width: 60rem;
   /* --p-spacing: 0.25rem; */
 }
+.view-content {
+  container-type: inline-size;
+}
 
 .dnd5e-character-sheet {
   @include meta.load-css("reset");
@@ -181,7 +184,7 @@ body:has(.dnd5e-character-sheet) {
   ul.ability-scores {
     gap: 2em 1em;
     justify-content: space-around;
-    @media (width > var.$mobile-breakpoint) {
+    @container ( width > #{var.$mobile-breakpoint} ) {
       grid-template-columns: repeat(6, auto) !important;
     }
     li {
@@ -289,7 +292,7 @@ body:has(.dnd5e-character-sheet) {
     grid-template-rows: repeat(3, auto);
     grid-auto-flow: column;
     justify-content: start;
-    @media (width < var.$mobile-breakpoint) {
+    @container ( width < #{var.$mobile-breakpoint} ) {
       justify-content: space-around;
     }
     gap: 0.5em 1em;
@@ -389,7 +392,7 @@ body:has(.dnd5e-character-sheet) {
   }
 
   div:has(> ul.combat-scores):has(+ div [data-callout-metadata="float"]) {
-    @media (width > (var.$mobile-breakpoint * 1.2)) {
+    @container (width > #{var.$mobile-breakpoint * 1.2} ) {
       float: left;
       width: 50%;
     }
@@ -400,7 +403,7 @@ body:has(.dnd5e-character-sheet) {
     &[data-callout-metadata="float"] {
       @extend .has-float;
     }
-    @media (width > var.$mobile-breakpoint) {
+    @container (width > #{var.$mobile-breakpoint}) {
       max-width: 50ch;
       margin-left: auto;
     }
