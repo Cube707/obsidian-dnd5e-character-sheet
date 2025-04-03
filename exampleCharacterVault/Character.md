@@ -69,7 +69,7 @@ money:
 > return engine.markdown.create(
 >     Array(6).fill().map((_,i)=> `<div class="exhaustion ${i<(context.bound.exhaustion??0) ? 'x' : ''}"></div>`).join(''))
 > ```
-> `BUTTON[add-exhaustion,sub-exhaustion]` Level: `VIEW[{exhaustion}]`&hairsp;/&hairsp;6
+> `BUTTON[add-exhaustion,sub-exhaustion]` Level: `VIEW[{exhaustion}|0]`&hairsp;/&hairsp;6
 >
 > <!-- Death Saves Tracker -->
 > ```meta-bind-js-view
@@ -81,8 +81,8 @@ money:
 > const saves = context.bound.saves;
 > if (context.bound.current <= 0)
 > return engine.markdown.create(`##### Death Saves
->   ${ Array(3).fill().map((_,i)=> `<i class="failure ${i<(saves.failures??0) ? 'x' : ''}"></i>`).join('') }
->   ${ Array(3).fill().map((_,i)=> `<i class="success ${i<(saves.successes??0) ? 'x' : ''}"></i>`).join('') }
+>   ${ Array(3).fill().map((_,i)=> `<b class="failure ${i<(saves.failures??0) ? 'x' : ''}">&nbsp;${i<(saves.failures??0)?'X':'-'}&nbsp;</b>`).join('') }
+>   ${ Array(3).fill().map((_,i)=> `<b class="success ${i<(saves.successes??0) ? 'x' : ''}">&nbsp;${i<(saves.successes??0)?'O':'-'}&nbsp;</b>`).join('') }
 >   \`BUTTON[fail-death-saves,succssed-death-saves,clear-death-saves]\`
 > `)
 > ```
