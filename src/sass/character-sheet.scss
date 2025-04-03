@@ -68,8 +68,8 @@ body:has(.dnd5e-character-sheet) {
   }
 
   [data-callout~="conditions"] {
-	  --callout-icon: user-round-search;
-	  --callout-color: none;
+    --callout-icon: user-round-search;
+    --callout-color: none;
 
     &[data-callout-metadata="float"] {
       @extend .has-float;
@@ -484,10 +484,10 @@ body:has(.dnd5e-character-sheet) {
 
     input {
       width: 100%;
-        max-width: 3.8em;
+      max-width: 3.8em;
     }
     .mb-input-wrapper::before {
-      content: '';
+      content: "";
       display: inline-block;
       vertical-align: middle;
       width: 1.2lh;
@@ -498,11 +498,11 @@ body:has(.dnd5e-character-sheet) {
       mask-size: contain;
     }
     @each $name, $color in var.$coin_colors {
-      .#{""+$name} {
+      .#{"" + $name} {
         > input {
           border-bottom: 2px solid $color;
         }
-        @extend .twicon-#{""+$name};
+        @extend .twicon-#{"" + $name};
       }
     }
   }
@@ -548,7 +548,11 @@ body:has(.dnd5e-character-sheet) {
       display: inline-block;
       &.x {
         outline: none;
-        background: linear-gradient(-50deg, var(--color-accent), rgb(from var(--color-accent) r g b / 0.75));
+        background: linear-gradient(
+          -50deg,
+          var(--color-accent),
+          rgb(from var(--color-accent) r g b / 0.75)
+        );
       }
     }
   }
