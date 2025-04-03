@@ -42,10 +42,10 @@ money:
 >
 > Here is space for a short character description or some other notes on the character.
 >
-> `BUTTON[longrest,shortrest]` `BUTTON[conditions]`
+> `BUTTON[longrest,shortrest]`
 
-> [!conditions]
-> ##### Conditions
+> [!conditions|float]-
+>
 > `INPUT[toggle:conditions.blinded]` Blinded
 > `INPUT[toggle:conditions.charmed]` Charmed
 > `INPUT[toggle:conditions.deafened]` Deafened
@@ -69,17 +69,7 @@ money:
 > return engine.markdown.create(
 >     Array(6).fill().map((_,i)=> `<div class="exhaustion ${i<(context.bound.exhaustion??0) ? 'x' : ''}"></div>`).join(''))
 > ```
-> `BUTTON[add-exhaustion,sub-exhaustion]` Level: `VIEW[+{exhaustion}]`&hairsp;/&hairsp;6
->
-> ##### Hit Dice **1d8{.dice}**`VIEW[sign({memory^CON_mod})]`
-> ```meta-bind-js-view
-> {hit_dice} as used
-> {LVL} as max
-> ---
-> container.addClass('resource-tracker');
-> let objs = Array(context.bound.max).fill().map((_,i) => `<i class="charge ${i<context.bound.used?'x':''}"></i>`);
-> return engine.markdown.create(`\`BUTTON[use-hitdie]\` ${objs.join('')}`)
-> ```
+> `BUTTON[add-exhaustion,sub-exhaustion]` Level: `VIEW[{exhaustion}]`&hairsp;/&hairsp;6
 >
 > <!-- Death Saves Tracker -->
 > ```meta-bind-js-view
@@ -96,6 +86,16 @@ money:
 >   \`BUTTON[fail-death-saves,succssed-death-saves,clear-death-saves]\`
 > `)
 > ```
+
+##### Hit Dice **1d8{.dice}**`VIEW[sign({memory^CON_mod})]`
+```meta-bind-js-view
+{hit_dice} as used
+{LVL} as max
+---
+container.addClass('resource-tracker');
+let objs = Array(context.bound.max).fill().map((_,i) => `<i class="charge ${i<context.bound.used?'x':''}"></i>`);
+return engine.markdown.create(`\`BUTTON[use-hitdie]\` ${objs.join('')}`)
+```
 
 
 ## Abilities
@@ -335,19 +335,6 @@ actions:
     code: new Notice("short rest completed")
   - type: sleep
     ms: 200
-```
-
-<!-- button to toggle the conditions view -->
-```meta-bind-button
-label: Contitions
-icon: user-round-search
-style: primary
-class: conditions
-id: "conditions"
-hidden: true
-actions:
-  - type: inlineJS
-    code: document.querySelectorAll('[data-callout~="conditions"]').forEach(div=>div.classList.toggle('show'))
 ```
 
 <!-- button to spend hitdice -->

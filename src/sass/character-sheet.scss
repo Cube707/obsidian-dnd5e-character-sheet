@@ -68,21 +68,18 @@ body:has(.dnd5e-character-sheet) {
   }
 
   [data-callout~="conditions"] {
-    @include reset.callout;
+	  --callout-icon: user-round-search;
+	  --callout-color: none;
 
-    @at-root .markdown-preview-view#{&} {
-      display: none;
-      &.show {
-        display: block;
-      }
+    &[data-callout-metadata="float"] {
+      @extend .has-float;
     }
 
-    margin-top: 1em;
-    margin-left: auto;
-    width: 100%;
-    max-width: 50ch;
+    border-radius: 1em;
+    border: 2px solid var(--color-base-60);
     .callout-content {
-      // background-color: darkcyan;
+      overflow-x: unset;
+      
       padding: 1em;
       border-radius: 1em;
       border: 2px solid var(--color-base-60);
