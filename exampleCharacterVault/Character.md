@@ -139,17 +139,17 @@ return engine.markdown.create(`\`BUTTON[use-hitdie]\` ${objs.join('')}`)
 #### Saving Throws
 
 - ##### Strength
-  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.STR_save]` `VIEW[sign(floor({proficiencies.STR_save}*{memory^PROF_mod})+{memory^STR_mod})][math(class(val))]`
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.STR_save]` `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.STR_save}*{memory^PROF_mod})+{memory^STR_mod})][math(class(val))]`
 - ##### Dexterity
-  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.DEX_save]` `VIEW[sign(floor({proficiencies.DEX_save}*{memory^PROF_mod})+{memory^DEX_mod})][math(class(val))]`
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.DEX_save]` `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.DEX_save}*{memory^PROF_mod})+{memory^DEX_mod})][math(class(val))]`
 - ##### Constitution
-  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.CON_save]` `VIEW[sign(floor({proficiencies.CON_save}*{memory^PROF_mod})+{memory^CON_mod})][math(class(val))]`
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.CON_save]` `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.CON_save}*{memory^PROF_mod})+{memory^CON_mod})][math(class(val))]`
 - ##### Intelligence
-  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.INT_save]` `VIEW[sign(floor({proficiencies.INT_save}*{memory^PROF_mod})+{memory^INT_mod})][math(class(val))]`
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.INT_save]` `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.INT_save}*{memory^PROF_mod})+{memory^INT_mod})][math(class(val))]`
 - ##### Wisdom
-  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.WIS_save]` `VIEW[sign(floor({proficiencies.WIS_save}*{memory^PROF_mod})+{memory^WIS_mod})][math(class(val))]`
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.WIS_save]` `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.WIS_save}*{memory^PROF_mod})+{memory^WIS_mod})][math(class(val))]`
 - ##### Charisma
-  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.CHR_save]` `VIEW[sign(floor({proficiencies.CHR_save}*{memory^PROF_mod})+{memory^CHR_mod})][math(class(val))]`
+  `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.CHR_save]` `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.CHR_save}*{memory^PROF_mod})+{memory^CHR_mod})][math(class(val))]`
 { .saving-scores }
 
 #### Senses
@@ -215,12 +215,12 @@ None
   `VIEW[sign({memory^DEX_mod})][math(class(val))]`
 - { .speed }
   ##### Speed
-  _w{ .twicon-walking .size-m }_ `VIEW[{speed.walking}][math(class(val))]` _ft._
-  _c{ .twicon-climbing .size-m }_ `VIEW[{speed.climbing}][math(class(val))]` _ft._
+  _w{ .twicon-walking .size-m }_ `VIEW[{exhaustion}>=2?{speed.walking}/2:{speed.walking}][math(class(val))]` _ft._
+  _c{ .twicon-climbing .size-m }_ `VIEW[{exhaustion}>=2?{speed.climbing}/2:{speed.climbing}][math(class(val))]` _ft._
 { .combat-scores }
 
 > [!health-tracker|float]
-> ##### Hitpoints: `VIEW[{health.current}]`&hairsp;/&hairsp;`VIEW[{health.rolled}+{LVL}*{memory^CON_mod}][:health.max]` `VIEW[{health.temp}>0?print('(+$hp)',\{hp:{health.temp}\}):''][math(class(temp-hp))]`
+> ##### Hitpoints: `VIEW[{health.current}]`&hairsp;/&hairsp;`VIEW[({health.rolled}+{LVL}*{memory^CON_mod})*({exhaustion}>=4?0.5:1)][:health.max]` `VIEW[{health.temp}>0?print('(+$hp)',\{hp:{health.temp}\}):''][math(class(temp-hp))]`
 > ```meta-bind-js-view
 > {health.max} as max
 > ---
@@ -230,14 +230,14 @@ None
 
 ### Actions
 
-|                               | Info                                                    |                       Hit/DC                       |                                                                                 Damage |
-| :---------------------------: | :------------------------------------------------------ | :------------------------------------------------: | -------------------------------------------------------------------------------------: |
-| _M{ .twicon-melee .size-l }_  | **Wip**<br>_Meele Attack_<br>10 _ft._                   | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` | **1d4{.dice}**&hairsp;`VIEW[sign({memory^DEX_mod})]` _s{ .twicon-slashing }_<br>slowed |
-| _M{ .twicon-melee .size-l }_  | **Dagger of Venom**<br>_Meele Attack_<br>5 _ft._        | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` |           **1d4{.dice}**&hairsp;`VIEW[sign({memory^DEX_mod})]` _p{ .twicon-piercing }_ |
-|                               | **Venom Effect**<br>1&hairsp;_min_ or until attack hits |                     CON<br>15                      |                                                  **2d10{.dice}** _p{ .twicon-poison }_ |
-| _R{ .twicon-ranged .size-l }_ | **Dagger (throw)**<br>_Ranged Attack_<br>20 _(60)_      | `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` |           **1d4{.dice}**&hairsp;`VIEW[sign({memory^DEX_mod})]` _p{ .twicon-piercing }_ |
-| _U{ .twicon-unarmed .size-l}_ | **Unarmed strike**<br>_Meele Attack_<br>5 _ft._         |  `VIEW[sign({memory^STR_mod}+{memory^PROF_mod})]`  |                                                       `VIEW[sign(1+{memory^STR_mod})]` |
-|                               | **Net**<br>_Ranged Attack_<br>5 _(15)_                  |           `VIEW[sign({memory^DEX_mod})]`           |                                                                              restraint |
+|                               | Info                                                    |                                                       Hit/DC                                                        |                                                                                 Damage |
+| :---------------------------: | :------------------------------------------------------ | :-----------------------------------------------------------------------------------------------------------------: | -------------------------------------------------------------------------------------: |
+| _M{ .twicon-melee .size-l }_  | **Wip**<br>_Meele Attack_<br>10 _ft._                   | `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` | **1d4{.dice}**&hairsp;`VIEW[sign({memory^DEX_mod})]` _s{ .twicon-slashing }_<br>slowed |
+| _M{ .twicon-melee .size-l }_  | **Dagger of Venom**<br>_Meele Attack_<br>5 _ft._        | `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` |           **1d4{.dice}**&hairsp;`VIEW[sign({memory^DEX_mod})]` _p{ .twicon-piercing }_ |
+|                               | **Venom Effect**<br>1&hairsp;_min_ or until attack hits |                                                      CON<br>15                                                      |                                                  **2d10{.dice}** _p{ .twicon-poison }_ |
+| _R{ .twicon-ranged .size-l }_ | **Dagger (throw)**<br>_Ranged Attack_<br>20 _(60)_      | `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign({memory^DEX_mod}+{memory^PROF_mod}+1)]` |           **1d4{.dice}**&hairsp;`VIEW[sign({memory^DEX_mod})]` _p{ .twicon-piercing }_ |
+| _U{ .twicon-unarmed .size-l}_ | **Unarmed strike**<br>_Meele Attack_<br>5 _ft._         |  `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign({memory^STR_mod}+{memory^PROF_mod})]`  |                                                       `VIEW[sign(1+{memory^STR_mod})]` |
+|                               | **Net**<br>_Ranged Attack_<br>5 _(15)_                  |           `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign({memory^DEX_mod})]`           |                                                                              restraint |
 { .actions-in-combat .float }
 
 - [[Dagger of Venom|Activate Dagger of Venom]]{.action}

@@ -267,15 +267,21 @@ body:has(.dnd5e-character-sheet) {
     tr td:nth-of-type(3) {
       width: 100%;
     }
-
-    [class*="twicon-"] {
-      translate: -0.2em -10%;
-      left: 0.2em;
-      top: 50%;
-      &:empty {
-        display: none;
-      }
+    tr td:nth-of-type(4) {
+      display: grid;
+      grid-template-columns: auto 1fr;
     }
+  }
+
+  .mb-view-inline [class*="twicon-"] {
+    left: 0.2em;
+    top: 50%;
+    &:empty {
+      display: none;
+    }
+  }
+  table .mb-view-inline [class*="twicon-"] {
+    translate: -0.2em -10%;
   }
 
   ul.saving-scores {
@@ -289,7 +295,7 @@ body:has(.dnd5e-character-sheet) {
     gap: 0.5em 1em;
     li {
       width: 100%;
-      grid-template-columns: min-content auto min-content;
+      grid-template-columns: min-content auto min-content min-content;
       gap: 0.5em;
       padding-inline-end: 0.5em;
       border-radius: 100vw 0 0 100vw;
@@ -300,6 +306,9 @@ body:has(.dnd5e-character-sheet) {
       > h5 {
         grid-column: 2;
         justify-self: start;
+      }
+      > *:has(.val) {
+        grid-column: 4;
       }
     }
   }
