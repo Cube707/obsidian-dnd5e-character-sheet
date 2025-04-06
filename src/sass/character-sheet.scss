@@ -413,9 +413,6 @@ body:has(.dnd5e-character-sheet) {
       grid-column: span 4;
       margin-bottom: 0;
     }
-    .temp-hp {
-      color: var(--color-cyan);
-    }
     .health-bar .mb-progress-bar-input {
       height: 0.5em;
       cursor: unset;
@@ -426,7 +423,6 @@ body:has(.dnd5e-character-sheet) {
     p:has(.mb-button-group-inline) {
       display: flex;
       gap: 0.5em;
-      // justify-content: end;
 
       .mb-input {
         flex: 1;
@@ -441,6 +437,9 @@ body:has(.dnd5e-character-sheet) {
       }
     }
 
+    .temp-hp {
+      color: var(--color-cyan);
+    }
     .damage > button {
       background-color: var(--color-red);
     }
