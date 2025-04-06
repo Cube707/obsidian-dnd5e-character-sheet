@@ -585,11 +585,11 @@ body:has(.dnd5e-character-sheet) {
   }
 
   .markdown-embed {
-    *:first-child {
+    > *:first-child {
       margin-top: 0;
     }
-    *:last-child {
-      /* using 0 creates a scrollbar for some reason */
+    > *:last-child {
+      // using 0 creates a scrollbar for some reason
       margin-bottom: 1px;
     }
   }
