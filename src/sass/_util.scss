@@ -1,7 +1,9 @@
+@use "sass:meta";
 @use "var";
 @use "reset";
+@use "svgs";
 
-.has-float {
+@mixin float {
   @container ( width > #{var.$mobile-breakpoint * 1.2} ) {
     float: right;
     margin-left: 1.5em;
@@ -13,9 +15,13 @@
   }
 }
 
-[class^="el-"]:has(.float) {
-  @extend .has-float;
+.dnd5e-character-sheet {
+  [class^="el-"]:has(.float) {
+    @include float;
+  }
 }
+
+@include meta.load-css("icons");
 
 ul.inline-list {
   @include reset.list;
@@ -36,6 +42,130 @@ ul.inline-list {
       mask-image: url('data:image/svg+xml,<svg version="1.1" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><rect y="2" width="10" height="7"/></svg>');
       mask-position: center;
       mask-size: cover;
+    }
+  }
+}
+
+[data-callout~="charater-details"] {
+  @include reset.callout;
+
+  .callout-content {
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 7rem);
+    gap: 0.1em 1em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    grid-column: 1;
+  }
+
+  p:has(.image-embed) {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+  }
+
+  p:not(:has(.image-embed)) {
+    grid-column: span 2;
+  }
+
+  p:has(.mb-button-group) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-top: 1em;
+    :last-child {
+      margin-left: auto;
+    }
+  }
+}
+
+[data-callout~="health-tracker"] {
+  @include reset.callout;
+  &[data-callout-metadata="float"] {
+    @include float;
+  }
+  @container (width > #{var.$mobile-breakpoint}) {
+    max-width: 50ch;
+    margin-left: auto;
+  }
+
+  h5,
+  .mb-view:has(.health-bar) {
+    grid-column: span 4;
+    margin-bottom: 0;
+  }
+  .health-bar .mb-progress-bar-input {
+    height: 0.5em;
+    cursor: unset;
+    pointer-events: none;
+    margin-block: 0.5em 1em;
+  }
+
+  p:has(.mb-button-group-inline) {
+    display: flex;
+    gap: 0.5em;
+
+    .mb-input {
+      flex: 1;
+      input {
+        width: 100%;
+        min-width: 6ch;
+      }
+    }
+    button {
+      font-weight: bold;
+      color: var(--interactive-normal);
+    }
+  }
+
+  .temp-hp {
+    color: var(--color-cyan);
+  }
+  .damage > button {
+    background-color: var(--color-red);
+  }
+  .heal > button {
+    background-color: var(--color-green);
+  }
+  .temp > button {
+    background-color: var(--color-cyan);
+  }
+}
+
+[data-callout~="money-tracker"] {
+  @include reset.callout;
+  &[data-callout-metadata="float"] {
+    @include float;
+  }
+  &:not([data-callout-metadata="float"]) {
+    width: fit-content;
+    margin-left: auto;
+  }
+  input {
+    width: 100%;
+    max-width: 3.8em;
+  }
+  .mb-input-wrapper::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.2lh;
+    aspect-ratio: 1;
+    margin-right: 0.2em;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+  }
+  @each $name, $color in var.$coin_colors {
+    .#{"" + $name} {
+      > input {
+        border-bottom: 2px solid $color;
+      }
+      @extend .twicon-#{"" + $name};
     }
   }
 }

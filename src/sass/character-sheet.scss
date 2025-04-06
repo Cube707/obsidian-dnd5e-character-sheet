@@ -3,13 +3,14 @@
 @use "svgs";
 @use "var";
 @use "reset";
+@use "util";
 
 /* give the desktop view a little more vertical space */
 body:has(.dnd5e-character-sheet) {
   --file-line-width: 60rem;
   /* --p-spacing: 0.25rem; */
 }
-.view-content {
+.view-content:has(.dnd5e-character-sheet) {
   container-type: inline-size;
 }
 
@@ -33,49 +34,12 @@ body:has(.dnd5e-character-sheet) {
     clear: both;
   }
 
-  [data-callout~="charater-details"] {
-    @include reset.callout;
-
-    .callout-content {
-      display: grid;
-      grid-template-columns: 1fr minmax(auto, 7rem);
-      gap: 0.1em 1em;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      margin: 0;
-      grid-column: 1;
-    }
-
-    p:has(.image-embed) {
-      grid-column: 2;
-      grid-row: 1 / span 3;
-    }
-
-    p:not(:has(.image-embed)) {
-      grid-column: span 2;
-    }
-
-    p:has(.mb-button-group) {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1em;
-      margin-top: 1em;
-      :last-child {
-        margin-left: auto;
-      }
-    }
-  }
-
   [data-callout~="conditions"] {
     --callout-icon: user-round-search;
     --callout-color: none;
 
     &[data-callout-metadata="float"] {
-      @extend .has-float;
+      @include util.float;
     }
 
     border-radius: 1em;
@@ -398,59 +362,6 @@ body:has(.dnd5e-character-sheet) {
     }
   }
 
-  [data-callout~="health-tracker"] {
-    @include reset.callout;
-    &[data-callout-metadata="float"] {
-      @extend .has-float;
-    }
-    @container (width > #{var.$mobile-breakpoint}) {
-      max-width: 50ch;
-      margin-left: auto;
-    }
-
-    h5,
-    .mb-view:has(.health-bar) {
-      grid-column: span 4;
-      margin-bottom: 0;
-    }
-    .health-bar .mb-progress-bar-input {
-      height: 0.5em;
-      cursor: unset;
-      pointer-events: none;
-      margin-block: 0.5em 1em;
-    }
-
-    p:has(.mb-button-group-inline) {
-      display: flex;
-      gap: 0.5em;
-
-      .mb-input {
-        flex: 1;
-        input {
-          width: 100%;
-          min-width: 6ch;
-        }
-      }
-      button {
-        font-weight: bold;
-        color: var(--interactive-normal);
-      }
-    }
-
-    .temp-hp {
-      color: var(--color-cyan);
-    }
-    .damage > button {
-      background-color: var(--color-red);
-    }
-    .heal > button {
-      background-color: var(--color-green);
-    }
-    .temp > button {
-      background-color: var(--color-cyan);
-    }
-  }
-
   .actions-in-combat {
     @media (width > var.$mobile-breakpoint) {
       max-width: 50ch;
@@ -470,41 +381,6 @@ body:has(.dnd5e-character-sheet) {
 
       strong:not(.dice) {
         color: var(--color-accent);
-      }
-    }
-  }
-
-  [data-callout~="money-tracker"] {
-    @include reset.callout;
-    &[data-callout-metadata="float"] {
-      @extend .has-float;
-    }
-    @media (width > var.$mobile-breakpoint) {
-      max-width: 50ch;
-      margin-left: auto;
-    }
-
-    input {
-      width: 100%;
-      max-width: 3.8em;
-    }
-    .mb-input-wrapper::before {
-      content: "";
-      display: inline-block;
-      vertical-align: middle;
-      width: 1.2lh;
-      aspect-ratio: 1;
-      margin-right: 0.2em;
-      mask-repeat: no-repeat;
-      mask-position: center;
-      mask-size: contain;
-    }
-    @each $name, $color in var.$coin_colors {
-      .#{"" + $name} {
-        > input {
-          border-bottom: 2px solid $color;
-        }
-        @extend .twicon-#{"" + $name};
       }
     }
   }
@@ -530,9 +406,6 @@ body:has(.dnd5e-character-sheet) {
     font-weight: bold;
     color: var(--color-accent) !important;
   }
-
-  @include meta.load-css("util");
-  @include meta.load-css("icons");
 }
 
 .dnd5e-character-sheet,
