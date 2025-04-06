@@ -34,8 +34,9 @@ money:
   copper: 103
 ---
 
+# Test Character
+
 > [!charater-details]
-> # Test Character
 > ### Human - Rogue (Arcane&nbsp;Trickster)
 > #### Level: `VIEW[{LVL}]`
 > ![[token.png]]
@@ -43,6 +44,7 @@ money:
 > Here is space for a short character description or some other notes on the character.
 >
 > `BUTTON[longrest,shortrest]`
+
 
 > [!conditions|float]-
 >

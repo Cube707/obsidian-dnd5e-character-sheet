@@ -3,12 +3,12 @@
 @use "reset";
 @use "svgs";
 
-@mixin float {
+@mixin float($width: 45%) {
   @container ( width > #{var.$mobile-breakpoint * 1.2} ) {
     float: right;
     margin-left: 1.5em;
     margin-bottom: 2em;
-    width: 45%;
+    width: $width;
     max-width: calc(var(--file-line-width) / 2);
     position: relative;
     z-index: 10;
@@ -68,7 +68,7 @@ ul.inline-list {
     grid-row: 1 / span 3;
   }
 
-  p:not(:has(.image-embed)) {
+  p:not(:has(.image-embed)) + p {
     grid-column: span 2;
   }
 
@@ -139,12 +139,11 @@ ul.inline-list {
 [data-callout~="money-tracker"] {
   @include reset.callout;
   &[data-callout-metadata="float"] {
-    @include float;
+    @include float($width: none);
   }
-  &:not([data-callout-metadata="float"]) {
-    width: fit-content;
-    margin-left: auto;
-  }
+  width: fit-content;
+  margin-left: auto;
+
   input {
     width: 100%;
     max-width: 3.8em;

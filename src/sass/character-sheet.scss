@@ -22,16 +22,16 @@ body:has(.dnd5e-character-sheet) {
   table {
     width: 100%;
   }
+  .el-h1,
+  .el-h2,
+  .el-h3 {
+    clear: both;
+  }
   .mb-view:has(.mb-view-hidden) {
     display: none;
   }
   .mb-view-hidden {
     display: none;
-  }
-  .el-h1,
-  .el-h2,
-  .el-h3 {
-    clear: both;
   }
 
   [data-callout~="conditions"] {
