@@ -100,8 +100,26 @@
 }
 
 /* ----- areas types ----- */
+.twicon-line::before {
+  mask-image: svgs.$tw_target_line;
+}
+.twicon-circle::before {
+  mask-image: svgs.$tw_target_circle;
+}
 .twicon-square::before {
   mask-image: svgs.$tw_target_square;
+}
+.twicon-cone::before {
+  mask-image: svgs.$tw_target_cone;
+}
+.twicon-cube::before {
+  mask-image: svgs.$tw_target_cube;
+}
+.twicon-cylinder::before {
+  mask-image: svgs.$tw_target_cylinder;
+}
+.twicon-sphere::before {
+  mask-image: svgs.$tw_target_sphere;
 }
 
 /* ----- movement types ----- */
