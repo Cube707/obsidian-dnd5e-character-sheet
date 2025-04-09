@@ -168,3 +168,9 @@ ul.inline-list {
     }
   }
 }
+
+.mb-button-group-inline:has(.minus, .plus) {
+  button {
+    height: auto;
+  }
+}

@@ -62,11 +62,8 @@ body:has(.dnd5e-character-sheet) {
           }
         }
       }
-      .mb-button-group-inline:has(.plus + .minus) {
+      .mb-button-group-inline:has(.minus,.plus) {
         margin-right: 2em;
-        button {
-          height: auto;
-        }
       }
 
       .death-saves {
