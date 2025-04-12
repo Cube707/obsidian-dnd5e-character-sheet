@@ -8,10 +8,8 @@ CON: 15
 INT: 14
 WIS: 10
 CHR: 12
-speed:
-  walking: 30
-  climbing: 15
 conditions: []
+hit_dice: 4
 proficiencies:
   intimidation: 0.5
   acrobatics: 1
@@ -22,7 +20,9 @@ proficiencies:
   deception: 1
   DEX_save: 1
   WIS_save: 1
-hit_dice: 4
+speed:
+  walking: 30
+  climbing: 15
 health:
   rolled: 24
   max: 34
