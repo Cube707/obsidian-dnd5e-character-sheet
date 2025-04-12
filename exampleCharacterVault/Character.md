@@ -268,10 +268,10 @@ None
 
 ### Other
 
-|                              | Info                                          |         Hit/DC         |                                 Damage |
-| :--------------------------: | :-------------------------------------------- | :--------------------: | -------------------------------------: |
-| _M{ .twicon-melee .size-l }_ | **Sneat Attack**<br>_Effect_<br>once per turn | advantage<br>on attack |                         **2d6{.dice}** |
-| _S{ .twicon-square .size-l }_ | **Caltrops**<br>_Area Effect_                 |       DEX<br>15        | 1 _p{ .twicon-piercing }_<br>-10 _ft._ |s
+|                               | Info                                          |         Hit/DC         |                                 Damage |
+| :---------------------------: | :-------------------------------------------- | :--------------------: | -------------------------------------: |
+| _M{ .twicon-melee .size-l }_  | **Sneat Attack**<br>_Effect_<br>once per turn | advantage<br>on attack |                         **2d6{.dice}** |
+| _E{ .twicon-square .size-l }_ | **Caltrops**<br>_Area Effect_                 |       DEX<br>15        | 1 _p{ .twicon-piercing }_<br>-10 _ft._ |
 { .actions-in-combat }
 
 - [[Sneak Attack]]{.action}
