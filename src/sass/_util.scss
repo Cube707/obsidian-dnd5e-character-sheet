@@ -117,8 +117,8 @@ ul.inline-list {
       }
     }
     button {
-      font-weight: bold;
-      color: var(--interactive-normal);
+      color: var(--text-on-accent-inverted);
+      font-weight: var(--bold-weight);
     }
   }
 
