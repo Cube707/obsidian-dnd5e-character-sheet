@@ -60,7 +60,7 @@ money:
 > return engine.markdown.create(
 >     Array(6).fill().map((_,i)=> `<div class="exhaustion ${i<(context.bound.exhaustion??0) ? 'x' : ''}"></div>`).join(''))
 > ```
-> `BUTTON[add-exhaustion,sub-exhaustion]` Level: `VIEW[{exhaustion}|0]`&hairsp;/&hairsp;6
+> `BUTTON[sub-exhaustion,add-exhaustion]` Level: `VIEW[{exhaustion}|0]`&hairsp;/&hairsp;6
 >
 > <!-- Death Saves Tracker -->
 > ```meta-bind-js-view
