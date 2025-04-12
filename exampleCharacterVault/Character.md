@@ -11,6 +11,7 @@ CHR: 12
 speed:
   walking: 30
   climbing: 15
+conditions: []
 proficiencies:
   intimidation: 0.5
   acrobatics: 1
@@ -47,21 +48,9 @@ money:
 
 
 > [!conditions|float]-
->
-> `INPUT[toggle:conditions.blinded]` Blinded
-> `INPUT[toggle:conditions.charmed]` Charmed
-> `INPUT[toggle:conditions.deafened]` Deafened
-> `INPUT[toggle:conditions.frightened]` Frightened
-> `INPUT[toggle:conditions.grappled]` Grappled
-> `INPUT[toggle:conditions.incapacitated]` Incapacitated
-> `INPUT[toggle:conditions.invisible]` Invisible
-> `INPUT[toggle:conditions.paralyzed]` Paralyzed
-> `INPUT[toggle:conditions.petrified]` Petrified
-> `INPUT[toggle:conditions.poisoned]` Poisoned
-> `INPUT[toggle:conditions.prone]` Prone
-> `INPUT[toggle:conditions.restrained]` Restrained
-> `INPUT[toggle:conditions.stunned]` Stunned
-> `INPUT[toggle:conditions.unconscious]` Unconscious
+> ```meta-bind
+> INPUT[multiSelect(option(blinded),option(charmed),option(deafened),option(frightened),option(grappled),option(incapacitated),option(invisible),option(paralyzed),option(petrified),option(poisoned),option(prone),option(restrained),option(stunned),option(unconscious),class(conditionsSelector)):conditions]
+> ```
 >
 > ##### Exhaustion
 > ```meta-bind-js-view

@@ -47,6 +47,14 @@ body:has(.dnd5e-character-sheet) {
     .callout-content {
       overflow-x: unset;
 
+      .mb-card:has(.conditionsSelector) {
+        padding:0;
+        border: unset;
+        .mb-select-input-element {
+          margin-left: calc(-1*var(--size-4-2))
+        }
+      }
+
       .exhaustion-tracker {
         display: flex;
         gap: 1em;
