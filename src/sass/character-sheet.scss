@@ -250,7 +250,7 @@ body:has(.dnd5e-character-sheet) {
     left: 0.2em;
     top: 50%;
     &:empty {
-      display: none;
+      display: none !important;
     }
   }
   table .mb-view-inline [class*="twicon-"] {

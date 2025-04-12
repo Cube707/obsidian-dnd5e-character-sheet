@@ -4,7 +4,7 @@
 
 /* ----- generic settings ----- */
 [class*="twicon-"] {
-  display: inline-flex;
+  display: inline-flex !important;
   width: 1em;
   aspect-ratio: 1;
   overflow: hidden;
