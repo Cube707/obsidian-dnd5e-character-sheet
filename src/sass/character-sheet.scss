@@ -89,9 +89,10 @@ body:has(.dnd5e-character-sheet) {
         $color_success: rgb(from var(--color-green) r g b / 0.75);
         $color_failure: rgb(from var(--color-red) r g b / 0.75);
         b {
-          flex: 0 1 1.5em;
+          flex: 0 1 1.1lh;
           display: grid;
           place-items: center;
+          font-family: sans-serif;
           aspect-ratio: 1;
           border-radius: 0.5em;
           outline: 1px solid;
