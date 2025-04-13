@@ -78,7 +78,7 @@ money:
 > `)
 > ```
 
-##### Hit Dice **1d8{.dice}**`VIEW[sign({memory^CON_mod})]`
+Hit Dice: **1d8{.dice}**`VIEW[sign({memory^CON_mod})]`
 ```meta-bind-js-view
 {hit_dice} as used
 {LVL} as max
