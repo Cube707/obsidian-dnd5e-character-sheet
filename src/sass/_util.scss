@@ -10,6 +10,7 @@
     margin-bottom: 2em;
     width: $width;
     max-width: calc(var(--file-line-width) / 2);
+    position: relative;
     z-index: var(--layer-sidedock);
   }
 }
