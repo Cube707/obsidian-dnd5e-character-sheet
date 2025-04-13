@@ -8,6 +8,9 @@
 .obsidian/*.json
 !.obsidian/appearance.json
 
+# ignore the theme files
+.obsidian/themes/
+
 # ignore the plugins files, but not the settings
 .obsidian/plugins/*
 
