@@ -16,13 +16,15 @@
 
 /* for callout that are just used to put some stuff into a box
    this resets all the default styling */
-@mixin callout {
-  background: transparent;
+@mixin callout($title: true) {
+  --callout-color: unset;
   padding: 0;
   margin: 0;
   border-radius: unset;
-  > .callout-title {
-    display: none;
+  @if $title == false {
+    > .callout-title {
+      display: none;
+    }
   }
   p {
     margin: 0;

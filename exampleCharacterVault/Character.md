@@ -210,8 +210,7 @@ None
   _c{ .twicon-climbing .size-m }_ `VIEW[{exhaustion}>=2?{speed.climbing}/2:{speed.climbing}][math(class(val))]` _ft._
 { .combat-scores }
 
-> [!health-tracker|float]
-> ##### Hitpoints: `VIEW[{health.current}]`&hairsp;/&hairsp;`VIEW[({health.rolled}+{LVL}*{memory^CON_mod})*({exhaustion}>=4?0.5:1)][:health.max]` `VIEW[{health.temp}>0?print('(+$hp)',\{hp:{health.temp}\}):''][math(class(temp-hp))]`
+> [!health-tracker|float] Hitpoints: `VIEW[{health.current}]`&hairsp;/&hairsp;`VIEW[({health.rolled}+{LVL}*{memory^CON_mod})*({exhaustion}>=4?0.5:1)][:health.max]` `VIEW[{health.temp}>0?print('(+$hp)',\{hp:{health.temp}\}):''][math(class(temp-hp))]`
 > ```meta-bind-js-view
 > {health.max} as max
 > ---
@@ -283,9 +282,11 @@ None
 
 ## Inventory
 
-> [!money-tracker]
-> ##### Current: `VIEW[round(10*{money.platin} + {money.gold} + 0.1*{money.silver} + 0.01*{money.copper},2)]`&hairsp;_gp._
-> `INPUT[number(class(platin)):money.platin]` `INPUT[number(class(gold)):money.gold]` `INPUT[number(class(silver)):money.silver]` `INPUT[number(class(copper)):money.copper]`
+> [!money-tracker] Current: `VIEW[round(10*{money.platin} + {money.gold} + 0.1*{money.silver} + 0.01*{money.copper},2)]`&hairsp;_gp._
+> `INPUT[number(class(platin)):money.platin]`
+> `INPUT[number(class(gold)):money.gold]`
+> `INPUT[number(class(silver)):money.silver]`
+> `INPUT[number(class(copper)):money.copper]`
 
 
 ```js-engine

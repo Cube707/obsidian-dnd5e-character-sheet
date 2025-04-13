@@ -47,7 +47,7 @@ ul.inline-list {
 }
 
 [data-callout~="charater-details"] {
-  @include reset.callout;
+  @include reset.callout($title:false);
 
   .callout-content {
     display: grid;
@@ -88,6 +88,12 @@ ul.inline-list {
   &[data-callout-metadata="float"] {
     @include float;
   }
+
+  --callout-icon: heart-pulse;
+  .callout-title {
+    font-size: var(--h5-size);
+    --icon-size: var(--h5-size);
+  }
   @container (width > #{var.$mobile-breakpoint}) {
     max-width: 50ch;
     margin-left: auto;
@@ -102,7 +108,7 @@ ul.inline-list {
     height: 0.5em;
     cursor: unset;
     pointer-events: none;
-    margin-block: 0.5em 1em;
+    margin-block: var(--p-spacing);
   }
 
   p:has(.mb-button-group-inline) {
@@ -141,9 +147,20 @@ ul.inline-list {
   &[data-callout-metadata="float"] {
     @include float($width: none);
   }
+
+  --callout-icon: coins;
+  // --callout-color: var(--color-yellow-rgb);
+  // background-color: unset;
+  .callout-title {
+    margin-bottom: var(--p-spacing);
+    font-size: var(--h5-size);
+    --icon-size: var(--h5-size);
+  }
+
   width: fit-content;
   margin-left: auto;
 
+  br {display: none;}
   input {
     width: 100%;
     max-width: 3.8em;
