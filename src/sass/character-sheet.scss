@@ -42,8 +42,8 @@ body:has(.dnd5e-character-sheet) {
       @include util.float;
     }
 
-    border-radius: 1em;
-    border: 2px solid var(--color-base-60);
+    border-radius: var(--radius-xl);
+    border: solid var(--border-width) var(--color-base-60);
     .callout-content {
       overflow-x: unset;
 
@@ -57,14 +57,14 @@ body:has(.dnd5e-character-sheet) {
 
       .exhaustion-tracker {
         display: flex;
-        gap: 1em;
-        margin-bottom: 1em;
+        gap: var(--p-spacing);
+        margin-bottom: var(--p-spacing);
         .exhaustion {
           flex: 0 1 1.5em;
-          border-radius: 0.5em;
+          border-radius: var(--radius-m);
           aspect-ratio: 1;
           $color: var(--color-base-70);
-          outline: 1px solid $color;
+          outline: var(--border-width) solid $color;
           &.x {
             background-color: $color;
           }
@@ -129,7 +129,6 @@ body:has(.dnd5e-character-sheet) {
     @include reset.list;
 
     display: grid;
-    grid-template-columns: repeat(3, auto);
     justify-content: space-between;
     place-items: center;
     isolation: isolate;
@@ -138,7 +137,7 @@ body:has(.dnd5e-character-sheet) {
       display: grid;
       place-items: center;
       align-content: center;
-      border: 2px solid;
+      border: calc(2*var(--border-width)) solid;
     }
     h5 {
       font-weight: normal;
@@ -161,7 +160,7 @@ body:has(.dnd5e-character-sheet) {
       width: 4.5em;
       gap: 0.25em;
       padding: 0;
-      border-radius: 1em;
+      border-radius: var(--radius-xl);
     }
     code:has(.val) {
       grid-row: 2;
@@ -173,8 +172,8 @@ body:has(.dnd5e-character-sheet) {
       grid-row: 3;
       width: 2.75em;
       font-size: 1em;
-      border-radius: 0.5em 0.5em 0 0;
-      border: var(--color-base-60) 0.5px solid !important;
+      border-radius: var(--radius-m) var(--radius-m) 0 0;
+      border: var(--border-width) solid  var(--color-base-60) !important;
       text-align: center;
       margin-bottom: -1px;
       z-index: -1;
@@ -271,7 +270,7 @@ body:has(.dnd5e-character-sheet) {
       grid-template-columns: min-content auto min-content min-content;
       gap: 0.5em;
       padding-inline-end: 0.5em;
-      border-radius: 100vw 0 0 100vw;
+      border-radius: 100vw var(--radius-s) var(--radius-s) 100vw;
       > *:has(.proficiency-selector) {
         grid-column: 1;
         grid-row: 1;
@@ -296,7 +295,7 @@ body:has(.dnd5e-character-sheet) {
       width: 100%;
       position: relative;
       padding-inline: 2.25em 1em;
-      border-radius: 0.5em;
+      border-radius: var(--radius-m);
       justify-content: start;
 
       *:has(.val) {
@@ -324,7 +323,7 @@ body:has(.dnd5e-character-sheet) {
   }
 
   ul.combat-scores {
-    align-items: center;
+    grid-template-columns: repeat(3, auto);
     li:has(.amour-class) {
       width: 5.5em;
       aspect-ratio: 1;
@@ -423,9 +422,9 @@ body:has(.dnd5e-character-sheet) {
     gap: 1em;
     .charge {
       flex: 0 1 1.5em;
-      border-radius: 0.5em;
+      border-radius: var(--radius-m);
       aspect-ratio: 1;
-      outline: 1px solid var(--text-faint);
+      outline: var(--border-width) solid var(--text-faint);
       display: inline-block;
       &.x {
         outline: none;
