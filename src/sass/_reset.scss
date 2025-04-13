@@ -4,9 +4,10 @@
   list-style-type: none !important;
   li {
     margin-inline-start: 0;
-  }
-  span.list-bullet {
-    display: none;
+    &::before,
+    span.list-bullet {
+      display: none;
+    }
   }
   br {
     display: none;

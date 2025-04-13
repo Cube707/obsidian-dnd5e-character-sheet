@@ -139,7 +139,7 @@ body:has(.dnd5e-character-sheet) {
       align-content: center;
       border: calc(2*var(--border-width)) solid;
     }
-    h5 {
+    strong {
       font-weight: normal;
     }
     .val {
@@ -275,7 +275,7 @@ body:has(.dnd5e-character-sheet) {
         grid-column: 1;
         grid-row: 1;
       }
-      > h5 {
+      > strong {
         grid-column: 2;
         justify-self: start;
       }
@@ -287,14 +287,16 @@ body:has(.dnd5e-character-sheet) {
 
   ul.senses-scores {
     $left-offset: 1em;
+    padding-block: 0.7em;
     grid-template-columns: auto;
     justify-items: start;
-    gap: 1.25em;
+    gap: var(--p-spacing);
     margin-left: $left-offset;
     li {
       width: 100%;
       position: relative;
       padding-inline: 2.25em 1em;
+      padding-block: 0.2em;
       border-radius: var(--radius-m);
       justify-content: start;
 
@@ -340,7 +342,7 @@ body:has(.dnd5e-character-sheet) {
         border: 2px solid;
         transform: skewX(-15deg);
       }
-      h5 {
+      strong {
         translate: 0.25em;
       }
       .mb-view {
@@ -353,7 +355,7 @@ body:has(.dnd5e-character-sheet) {
       gap: 0 0.25em;
       padding-inline: 2em;
       border-radius: 2em;
-      h5 {
+      strong {
         margin-top: -0.2em;
         grid-column: span 3;
       }

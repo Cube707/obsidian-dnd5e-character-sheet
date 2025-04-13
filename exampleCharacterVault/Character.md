@@ -8,7 +8,7 @@ CON: 15
 INT: 14
 WIS: 10
 CHR: 12
-conditions: []
+conditions: 
 hit_dice: 4
 proficiencies:
   intimidation: 0.5
@@ -91,17 +91,17 @@ return engine.markdown.create(`\`BUTTON[use-hitdie]\` ${objs.join('')}`)
 
 ## Abilities
 
-- ##### STR `VIEW[calcmodifier({STR})][math(hidden):memory^STR_mod]`
+- **STR** `VIEW[calcmodifier({STR})][math(hidden):memory^STR_mod]`
   `INPUT[number(class(val)):STR]` `VIEW[sign({memory^STR_mod})][math(class(sub))]`
-- ##### DEX `VIEW[calcmodifier({DEX})][math(hidden):memory^DEX_mod]`
+- **DEX** `VIEW[calcmodifier({DEX})][math(hidden):memory^DEX_mod]`
   `INPUT[number(class(val)):DEX]` `VIEW[sign({memory^DEX_mod})][math(class(sub))]`
-- ##### CON `VIEW[calcmodifier({CON})][math(hidden):memory^CON_mod]`
+- **CON** `VIEW[calcmodifier({CON})][math(hidden):memory^CON_mod]`
   `INPUT[number(class(val)):CON]` `VIEW[sign({memory^CON_mod})][math(class(sub))]`
-- ##### INT `VIEW[calcmodifier({INT})][math(hidden):memory^INT_mod]`
+- **INT** `VIEW[calcmodifier({INT})][math(hidden):memory^INT_mod]`
   `INPUT[number(class(val)):INT]` `VIEW[sign({memory^INT_mod})][math(class(sub))]`
-- ##### WIS `VIEW[calcmodifier({WIS})][math(hidden):memory^WIS_mod]`
+- **WIS** `VIEW[calcmodifier({WIS})][math(hidden):memory^WIS_mod]`
   `INPUT[number(class(val)):WIS]` `VIEW[sign({memory^WIS_mod})][math(class(sub))]`
-- ##### CHR `VIEW[calcmodifier({CHR})][math(hidden):memory^CHR_mod]`
+- **CHR** `VIEW[calcmodifier({CHR})][math(hidden):memory^CHR_mod]`
   `INPUT[number(class(val)):CHR]` `VIEW[sign({memory^CHR_mod})][math(class(sub))]`
 { .ability-scores }
 
@@ -129,27 +129,27 @@ return engine.markdown.create(`\`BUTTON[use-hitdie]\` ${objs.join('')}`)
 
 #### Saving Throws
 
-- ##### Strength
+- **Strength**
   `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.STR_save]` `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.STR_save}*{memory^PROF_mod})+{memory^STR_mod})][math(class(val))]`
-- ##### Dexterity
+- **Dexterity**
   `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.DEX_save]` `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.DEX_save}*{memory^PROF_mod})+{memory^DEX_mod})][math(class(val))]`
-- ##### Constitution
+- **Constitution**
   `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.CON_save]` `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.CON_save}*{memory^PROF_mod})+{memory^CON_mod})][math(class(val))]`
-- ##### Intelligence
+- **Intelligence**
   `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.INT_save]` `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.INT_save}*{memory^PROF_mod})+{memory^INT_mod})][math(class(val))]`
-- ##### Wisdom
+- **Wisdom**
   `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.WIS_save]` `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.WIS_save}*{memory^PROF_mod})+{memory^WIS_mod})][math(class(val))]`
-- ##### Charisma
+- **Charisma**
   `INPUT[inlineSelect(defaultValue(0), option(0,not), option(1,proficient), class(proficiency-selector)):proficiencies.CHR_save]` `VIEW[{exhaustion}>=3?'D':''][math(class(twicon-disadvantage))]` `VIEW[sign(floor({proficiencies.CHR_save}*{memory^PROF_mod})+{memory^CHR_mod})][math(class(val))]`
 { .saving-scores }
 
 #### Senses
 
-- ##### Passive Perception
+- **Passive Perception**
   `VIEW[10+{memory^WIS_mod}+floor({proficiencies.perception}*{memory^PROF_mod})][math(class(val))]`
-- ##### Passive Investigation
+- **Passive Investigation**
   `VIEW[10+{memory^INT_mod}+floor({proficiencies.investigation}*{memory^PROF_mod})][math(class(val))]`
-- ##### Passive Insight
+- **Passive Insight**
   `VIEW[10+{memory^WIS_mod}+floor({proficiencies.insight}*{memory^PROF_mod})][math(class(val))]`
 { .senses-scores }
 
@@ -165,7 +165,7 @@ const lookup = { 1:2,2:2,3:2,4:2,5:3,6:3,7:3,8:3,9:4,10:4,
 return lookup[context.bound.lvl];
 ```
 - { .proficiency-bonus }
-  ##### Bonus
+  **Bonus**
   `VIEW[sign({memory^PROF_mod})][math(class(val))]`
 { .proficiency-scores }
 
@@ -199,13 +199,13 @@ None
 
 ## Combat
 - { .amour-class }
-  ##### AC
+  **AC**
   `VIEW[10+{memory^DEX_mod}][math(class(val))]`
 - { .initiative }
-  ##### Initiative
+  **Initiative**
   `VIEW[sign({memory^DEX_mod})][math(class(val))]`
 - { .speed }
-  ##### Speed
+  **Speed**
   _w{ .twicon-walking .size-m }_ `VIEW[{exhaustion}>=2?{speed.walking}/2:{speed.walking}][math(class(val))]` _ft._
   _c{ .twicon-climbing .size-m }_ `VIEW[{exhaustion}>=2?{speed.climbing}/2:{speed.climbing}][math(class(val))]` _ft._
 { .combat-scores }
