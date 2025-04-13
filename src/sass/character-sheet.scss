@@ -153,6 +153,7 @@ body:has(.dnd5e-character-sheet) {
   ul.ability-scores {
     gap: 2em 1em;
     justify-content: space-around;
+    grid-template-columns: repeat(3, auto);
     @container ( width > #{var.$mobile-breakpoint} ) {
       grid-template-columns: repeat(6, auto) !important;
     }
