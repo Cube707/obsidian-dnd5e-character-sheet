@@ -8,7 +8,7 @@ CON: 15
 INT: 14
 WIS: 10
 CHR: 12
-conditions: 
+conditions: []
 hit_dice: 4
 proficiencies:
   intimidation: 0.5
