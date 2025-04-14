@@ -233,6 +233,13 @@ None
 - [[Dagger of Venom|Activate Dagger of Venom]]{.action}
   The Dagger covers itself with a thick, black poison.
   The substance stays on the blade for 1 _min_ or until you hit a creature with the Dagger.
+  ```meta-bind-js-view
+  {Dagger of Venom#used} as used
+  ---
+  container.addClass('resource-tracker');
+  return engine.markdown.create(`\`BUTTON[use-venom-dagger]\` <i class="charge ${context.bound.used?'x':''}"></i>`)
+  ```
+
 - [[Net]]{.action}
   If a Large or smaller creature is hit with Net, it is restraint.
   A creature within reach can attempt a DC 10 STR check or deal 5 _slashing{.twicon-slashing}_ damage, to destroy the net.
@@ -462,4 +469,16 @@ actions:
     bindTarget: health.temp
     evaluate: true
     value: "Math.max(x, getMetadata('memory^health_change'))"
+```
+
+```meta-bind-button
+label: Use
+style: primary
+id: "use-venom-dagger"
+hidden: true
+actions:
+  - type: updateMetadata
+    bindTarget: Dagger of Venom#used
+    evaluate: false
+    value: "true"
 ```
