@@ -63,10 +63,9 @@ body:has(.dnd5e-character-sheet) {
           flex: 0 1 1.5em;
           border-radius: var(--radius-m);
           aspect-ratio: 1;
-          $color: var(--color-base-70);
-          outline: var(--border-width) solid $color;
+          outline: var(--border-width) solid var(--text-faint);
           &.x {
-            background-color: $color;
+            background-color: var(--color-base-70);
           }
         }
       }
@@ -94,7 +93,7 @@ body:has(.dnd5e-character-sheet) {
           place-items: center;
           font-family: sans-serif;
           aspect-ratio: 1;
-          border-radius: 0.5em;
+          border-radius: var(--radius-m);
           outline: 1px solid;
           &.success {
             outline-color: $color_success;
