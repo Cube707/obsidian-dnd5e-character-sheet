@@ -88,22 +88,17 @@ ul.inline-list {
   &[data-callout-metadata="float"] {
     @include float;
   }
+  @container (width > #{var.$mobile-breakpoint}) {
+    max-width: 50ch;
+    margin-left: auto;
+  }
 
   --callout-icon: heart-pulse;
   .callout-title {
     font-size: var(--h5-size);
     --icon-size: var(--h5-size);
   }
-  @container (width > #{var.$mobile-breakpoint}) {
-    max-width: 50ch;
-    margin-left: auto;
-  }
 
-  h5,
-  .mb-view:has(.health-bar) {
-    grid-column: span 4;
-    margin-bottom: 0;
-  }
   .health-bar .mb-progress-bar-input {
     height: 0.5em;
     cursor: unset;
@@ -113,23 +108,23 @@ ul.inline-list {
 
   p:has(.mb-button-group-inline) {
     display: flex;
-    gap: 0.5em;
-
+    gap: var(--p-spacing);
     .mb-input {
       flex: 1;
+      padding-inline: 0;
       input {
         width: 100%;
         min-width: 6ch;
       }
     }
-    button {
-      color: var(--text-on-accent-inverted);
-      font-weight: var(--bold-weight);
-    }
   }
 
   .temp-hp {
     color: var(--color-cyan);
+  }
+  button {
+    color: var(--text-on-accent-inverted);
+    font-weight: var(--bold-weight);
   }
   .damage > button {
     background-color: var(--color-red);
