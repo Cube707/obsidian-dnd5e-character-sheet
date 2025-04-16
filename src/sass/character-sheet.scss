@@ -422,10 +422,10 @@ body:has(.dnd5e-character-sheet) {
     flex-wrap: wrap;
     align-items: center;
     gap: 1em;
-    .charge {
+    .charge,b {
       flex: 0 1 1.5em;
-      border-radius: var(--radius-m);
       aspect-ratio: 1;
+      border-radius: var(--radius-m);
       outline: var(--border-width) solid var(--text-faint);
       display: inline-block;
       &.x {
@@ -435,6 +435,12 @@ body:has(.dnd5e-character-sheet) {
           var(--color-accent),
           rgb(from var(--color-accent) r g b / 0.75)
         );
+      }
+      overflow: hidden;
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 100%;
       }
     }
   }
