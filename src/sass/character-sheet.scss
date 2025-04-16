@@ -422,6 +422,7 @@ body:has(.dnd5e-character-sheet) {
     flex-wrap: wrap;
     align-items: center;
     gap: 1em;
+    margin-block: calc(0.5 * var(--p-spacing));
     .charge,b {
       flex: 0 1 1.5em;
       aspect-ratio: 1;
@@ -442,6 +443,11 @@ body:has(.dnd5e-character-sheet) {
         display: inline-block;
         width: 100%;
       }
+    }
+  }
+  .el-p:has(+ .el-pre .resource-tracker) {
+    p {
+      margin-bottom: calc(0.5 * var(--p-spacing));
     }
   }
 

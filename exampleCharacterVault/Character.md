@@ -79,13 +79,15 @@ money:
 > ```
 
 Hit Dice: **1d8{.dice}**`VIEW[sign({memory^CON_mod})]`
-```meta-bind-js-view
-{hit_dice} as used
-{LVL} as max
----
-container.addClass('resource-tracker');
-let objs = Array(context.bound.max).fill().map((_,i) => `<i class="charge ${i<context.bound.used?'x':''}"></i>`);
-return engine.markdown.create(`\`BUTTON[use-hitdie]\` ${objs.join('')}`)
+
+```js-engine
+const mb = engine.getPlugin("obsidian-meta-bind-plugin").api;
+const bindMax = mb.parseBindTarget("LVL", context.file.path);
+const bindCnt = mb.parseBindTarget("hit_dice", context.file.path);
+container.addClass("resource-tracker");
+container.onclick = () => mb.setMetadata(bindCnt,Math.max(mb.getMetadata(bindCnt)-1, 0));
+const box = (i, to) => `<b class="${i < to ? "x" : ""}">${i < to ? "#" : "-"}</b>`;
+return mb.reactiveMetadata([bindCnt, bindMax], component, (cnt, max) => engine.markdown.create(Array(max).fill().map((_, i) => box(i, cnt)).join(" ")));
 ```
 
 
