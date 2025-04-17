@@ -295,7 +295,7 @@ body:has(.dnd5e-character-sheet) {
     li {
       width: 100%;
       position: relative;
-      padding-inline: 2.25em 1em;
+      padding-inline: 2.5em 1em;
       padding-block: 0.2em;
       border-radius: var(--radius-m);
       justify-content: start;
@@ -307,7 +307,7 @@ body:has(.dnd5e-character-sheet) {
         aspect-ratio: 1;
         left: (-1 * $left-offset);
         border-radius: 50%;
-        border: 2px solid;
+        border: inherit;
         background-color: var(--background-primary);
         display: grid;
         place-items: center;
@@ -320,7 +320,7 @@ body:has(.dnd5e-character-sheet) {
     justify-items: start;
     li:has(.proficiency-bonus) {
       padding: 0 2em;
-      border-radius: 0.2em 2em / 0.2em 1em;
+      border-radius: var(--radius-s) 2em / var(--radius-s) 1em;
     }
   }
 
