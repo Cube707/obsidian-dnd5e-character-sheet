@@ -110,11 +110,12 @@ body:has(.dnd5e-character-sheet) {
         }
         .mb-button.success button {
           background-color: $color_success;
-          color: var(--text-normal);
         }
         .mb-button.failure button {
           background-color: $color_failure;
-          color: var(--text-normal);
+          &:hover {
+            color: var(--text);
+          }
         }
       }
     }
