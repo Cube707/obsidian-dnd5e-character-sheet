@@ -387,7 +387,7 @@ body:has(.dnd5e-character-sheet) {
     td {
       vertical-align: middle;
 
-      strong:not(.dice) {
+      > strong:not(.dice) {
         color: var(--color-accent);
       }
     }
@@ -401,18 +401,6 @@ body:has(.dnd5e-character-sheet) {
     > br {
       display: none;
     }
-  }
-
-  strong.dice {
-    color: var(--text-normal);
-    background: var(--interactive-normal);
-    padding-inline: 0.2em;
-    border-radius: 0.2em;
-  }
-
-  .action {
-    font-weight: bold;
-    color: var(--color-accent) !important;
   }
 }
 
@@ -450,6 +438,19 @@ body:has(.dnd5e-character-sheet) {
     p {
       margin-bottom: calc(0.5 * var(--p-spacing));
     }
+  }
+
+  .dice strong,
+  strong.dice {
+    color: var(--text-normal);
+    background: var(--interactive-normal);
+    padding-inline: 0.2em;
+    border-radius: 0.2em;
+  }
+
+  .action {
+    font-weight: bold;
+    color: var(--color-accent) !important;
   }
 
   [data-callout="item-infos"] {
