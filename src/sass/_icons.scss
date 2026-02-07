@@ -48,6 +48,16 @@
   mask-image: unset;
 }
 
+/* ----- random icons ----- */
+.twicon-attunement::before {
+  background-color: #9C27B0;
+  mask-image: svgs.$tw_attribute_attunement;
+}
+.twicon-attunement-empty::before {
+  background-color: #9b27b040;
+  mask-image: svgs.$tw_attribute_attunement;
+}
+
 /* ----- currency icons ----- */
 .twicon-copper::before {
   background-color: map.get(var.$coin_colors, copper) !important;
@@ -85,6 +95,9 @@
 }
 .twicon-unarmed::before {
   mask-image: svgs.$tw_weapon_strike;
+}
+.twicon-ac::before {
+  mask-image: svgs.$tw_attribute_ac;
 }
 
 /* ----- damage types ----- */
