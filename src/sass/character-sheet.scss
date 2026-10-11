@@ -387,7 +387,7 @@ body:has(.dnd5e-character-sheet) {
     td {
       vertical-align: middle;
 
-      strong:not(.dice) {
+      > strong:not(.dice) {
         color: var(--color-accent);
       }
     }
@@ -403,6 +403,7 @@ body:has(.dnd5e-character-sheet) {
     }
   }
 
+  .dice strong,
   strong.dice {
     color: var(--text-normal);
     background: var(--interactive-normal);
